@@ -1,0 +1,50 @@
+package redditquestions;
+
+import linkedList.Fibanocci;
+
+public class FibonacciNumbers {
+	//int n;
+	
+	
+	public static void printFibonacci(int n){
+		int first=0;
+		int second=1;
+		int next;
+		for(int i=0;i<=n;i++){
+			if(i<=0){
+				next=i;
+				System.out.println(next);
+			}
+			else{
+				next = first + second;
+				first=second;
+				second=next;
+				System.out.println(next);
+			}
+		}
+			
+		
+	}
+	public static int printFibonacciUsingRecursion(int n){
+		if(n==0){
+			return 0;
+		}
+		if(n==1){
+			return 1;
+		}
+		else{
+			return printFibonacciUsingRecursion(n-1) + printFibonacciUsingRecursion(n-2);
+		}
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		FibonacciNumbers fb = new FibonacciNumbers();
+		fb.printFibonacci(8);
+		fb.printFibonacciUsingRecursion(8);
+
+	}
+
+}
+

@@ -1,0 +1,11 @@
+package redditquestions;
+
+public class SplittingArrayByDiff {
+	
+	
+	public static void main(String[] args) {
+		int[] input = {5,5,4,7,2,1,3,5};
+		System.out.println(retSplitIndex(input, 5));
+	}
+
+}

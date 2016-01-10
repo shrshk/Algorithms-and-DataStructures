@@ -1,0 +1,28 @@
+package redditquestions;
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class NonRepeatedCharString {
+
+	public static char retNonRepChar(String x){
+		Set<Character> s = new HashSet<Character>();
+		for(int i=0;i<x.length();i++){
+			if(!s.contains(x.charAt(i))){
+				s.add(x.charAt(i));
+				
+			}
+		}
+		for(char a:s){
+			return a;
+			
+		}
+		return 'n';
+		
+	}
+	public static void main(String[] args) {
+		String x = "shirish";
+		System.out.println(retNonRepChar(x));
+	}
+	
+}

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.lang.CharSequence"/>
+<fullyQualifiedTypeName name="com.AlgosAndDs.DuplicateCheck"/>
+<fullyQualifiedTypeName name="com.AlgosAndDs.EmployeeInsertionSortImpl"/>
+<fullyQualifiedTypeName name="com.AlgosAndDs.Employee"/>
+<fullyQualifiedTypeName name="javax.sound.sampled.ReverbType"/>
+<fullyQualifiedTypeName name="stack.queue.Queue"/>
+<fullyQualifiedTypeName name="linkedList.DoublyLinkedNode"/>
+<fullyQualifiedTypeName name="recursion.TowerOfHannoi"/>
+<fullyQualifiedTypeName name="java.lang.Math"/>
+<fullyQualifiedTypeName name="recursion.MergeSortPractice"/>
+<fullyQualifiedTypeName name="trees.TreeNode"/>
+<fullyQualifiedTypeName name="trees.BinarySearchTree"/>
+<fullyQualifiedTypeName name="quickSort.QuickSort"/>
+<fullyQualifiedTypeName name="java.lang.RuntimeException"/>
+<fullyQualifiedTypeName name="heaps.AscendingHeap"/>
+<fullyQualifiedTypeName name="java.util.Arrays"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="java.util.Scanner"/>
+<fullyQualifiedTypeName name="codilityPractice.TapeEquilibrium"/>
+<fullyQualifiedTypeName name="linkedList.SplitByDifference"/>
+<fullyQualifiedTypeName name="java.lang.StringBuffer"/>
+<fullyQualifiedTypeName name="java.lang.StringBuilder"/>
+<fullyQualifiedTypeName name="com.AlgosAndDs.BubbleSort"/>
+<fullyQualifiedTypeName name="redditquestions.FreqIntegerArray"/>
+<fullyQualifiedTypeName name="java.lang.Package"/>
+<fullyQualifiedTypeName name="redditquestions.PairSumArray"/>
+<fullyQualifiedTypeName name="redditquestions.RotatedArray"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="redditquestions.BinarySearchAlgo"/>
+<fullyQualifiedTypeName name="javax.swing.text.html.HTMLDocument.Iterator"/>
+<fullyQualifiedTypeName name="javax.security.auth.x500.X500Principal"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.HashSet"/>
+<fullyQualifiedTypeName name="java.util.Set"/>
+<fullyQualifiedTypeName name="redditquestions.UniqueString"/>
+</qualifiedTypeNameHistroy>

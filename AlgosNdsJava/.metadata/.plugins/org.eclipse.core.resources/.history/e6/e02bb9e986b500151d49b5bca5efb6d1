@@ -1,0 +1,12 @@
+package redditquestions;
+
+public class NonRepeatedCharString {
+
+	public static char retNonRepChar(String x){
+		//String a = "";
+		for(int i=0;i<x.length();i++){
+			if()
+		}
+	}
+	
+}

@@ -1,0 +1,23 @@
+package redditquestions;
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class FindSingle {
+public static int retSingle(int[] x){
+	Set<Integer> singleSet = new HashSet<Integer>();
+	for(int i:x){
+		if(!singleSet.contains(i)){
+			singleSet.add(i);
+			if(singleSet.contains(i)){
+				return i;
+			}
+		}
+	}
+	return 0;
+}
+public static void main(String[] args) {
+	int[] a ={1,1,2,3};
+	System.out.println(retSingle(a));
+}
+}

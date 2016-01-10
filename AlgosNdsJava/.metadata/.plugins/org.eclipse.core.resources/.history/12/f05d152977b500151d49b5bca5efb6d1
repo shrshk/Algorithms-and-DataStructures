@@ -1,0 +1,33 @@
+package linkedList;
+
+public class SplitByDifference {
+	
+	public int splitByDef(int input[], int number){
+		int i=0;
+		int j=input.length-1;
+		int variance =0;
+		while(i!=j){
+			if(variance==0){
+				if(input[i]==number){
+					variance = 1;
+				}
+				i++;
+			}
+			else if(variance!=0){
+				if(input[j]==number){
+					variance = 0;
+				}
+				j--;
+			}
+			//System.out.println(variance +" "+ i + " " + j );
+		}
+		return i+1;	
+	}
+	public static void main(String[] args) {
+		SplitByDifference sbd = new SplitByDifference();
+		int[] input = {5,5,4,7,2,1,3,5};
+		System.out.println(sbd.splitByDef(input,5));
+		
+	}
+
+}

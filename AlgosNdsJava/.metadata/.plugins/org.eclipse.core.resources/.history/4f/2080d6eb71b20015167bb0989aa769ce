@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app="toDo">
+<head><title>Todo</title>
+    <link rel="stylesheet" type="text/css" href="Resources/style.css" />
+    <script src="https://code.angularjs.org/1.4.8/angular.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+    <script type="text/javascript" src="app/controllers/scripts.js"></script>
+</head>
+<body ng-controller="TodoCtrl">
+<span class="error" ng-bind="error_msg"></span>
+<input type="text" ng-model="inputBox">
+<button ng-show="add" ng-click="add_comment()">add</button>
+<button ng-hide="edit" ng-click="edit_comment()">Update</button>
+<ul>
+    <li ng-repeat="cmt in comments track by $index">
+        {{cmt}}
+        <a href="#" ng-click="removeItem($index)" class="button">x</a>
+        <a href="#" ng-click="edit_theName($index)" class="button">Edit</a>
+    </li>
+</ul>
+<p>{{arrayR}}</p>
+</body>
+</html>

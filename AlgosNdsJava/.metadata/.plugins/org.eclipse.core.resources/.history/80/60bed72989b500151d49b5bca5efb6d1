@@ -1,0 +1,21 @@
+package redditquestions;
+
+public class NonRepeatedCharString {
+
+	public static char retNonRepChar(String x){
+		//String a = "";
+		for(int i=0;i<x.length()-1;i++){
+			int j=1;
+			if(x.charAt(i)!=x.charAt(j) && j<x.length()){
+				j++;
+			}
+			
+		}
+		return 'n';
+	}
+	public static void main(String[] args) {
+		String x = "shirish";
+		System.out.println(retNonRepChar(x));
+	}
+	
+}

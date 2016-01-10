@@ -1,0 +1,85 @@
+<project name="Web Application" default="build" basedir=".">
+
+    <property file="${user.home}/build.properties"/>
+    <property file="build.properties"/>
+	
+    <taskdef name="deploy"    classname="org.apache.catalina.ant.DeployTask"/>
+    <taskdef name="reload"    classname="org.apache.catalina.ant.ReloadTask"/>
+    <taskdef name="undeploy"  classname="org.apache.catalina.ant.UndeployTask"/>
+    <taskdef name="start"     classname="org.apache.catalina.ant.StartTask"/>
+    <taskdef name="stop"      classname="org.apache.catalina.ant.StopTask"/>
+
+
+
+    <target name="init">
+        <tstamp/>
+    </target>
+
+    <target name="clean" description="Deletes the Web Application's war directory and web archive file">
+        <echo message="Deleting ${app.name}'s war directory and web archive file ..."/>
+        <delete dir="${basedir}/war" failonerror="false"/>
+        <delete file="${basedir}/${app.name}.war" failonerror="false"/>
+    </target>
+
+    <target name="prepare" description="Creates the Web Application's war directory" depends="init">
+        <echo message="Creating ${app.name}'s war directory ..."/>
+    
+    </target>
+
+    <target name="build" description="Builds the Web Application" depends="prepare">
+        <echo message="Building ${app.name} ..."/>
+  
+      
+ 
+        <copy todir="${basedir}/war">
+            <fileset dir="${basedir}/">
+                <include name="**/*.html"/>
+                <include name="**/*.jsp"/>
+                <include name="**/*.js"/>
+                <include name="**/*.css"/>
+                <include name="**/*.txt"/>
+                <include name="**/*.zip"/>
+                <include name="**/*.gif"/>
+                <include name="**/*.jpg"/>
+                <include name="**/*.png"/>
+                <include name="**/*.tag"/>
+                <include name="**/*.tld"/>
+            </fileset>
+        </copy>
+        <copy todir="${basedir}/war/META-INF">
+            <fileset dir=".">
+                <include name="context.xml" />
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="package" description="Packages the Web Application's web archive file" depends="build">
+        <echo message="Packaging ${app.name}'s web archive file ..."/>
+        <delete file="${basedir}/${app.name}.war"/>
+        <jar jarfile="${basedir}/${app.name}.war">
+            <fileset dir="${basedir}/war" includes="**"/>
+        </jar>
+    </target>
+	
+	<target name="deploy" description="Deploys the Web Application" >
+	<echo message="Deploying ${app.name} ..."/>
+	<deploy url="${manager.url}" username="${username}" password="${password}" path="/${kkuserid}/${app.name}"
+	war="file:${basedir}/${app.name}.war"/>
+	</target>
+
+	<target name="undeploy" description="Undeploys the Web Application" >
+	<echo message="Undeploying ${app.name} ..."/>
+	<undeploy url="${manager.url}" username="${username}" password="${password}" path="/${kkuserid}/${app.name}" failonerror="false" />
+	</target>
+
+	<target name="start" description="Start the Web Application" >
+	<echo message="Start the Web Application ..."/>
+	<start url="${manager.url}" username="${username}" password="${password}" path="/${kkuserid}/${app.name}"/>
+	</target>
+
+	<target name="stop" description="Stop the Web Application" >
+	<echo message="Stop the Web Application ..."/>
+	<stop url="${manager.url}" username="${username}" password="${password}" path="/${kkuserid}/${app.name}" failonerror="false" />
+	</target>
+
+</project>

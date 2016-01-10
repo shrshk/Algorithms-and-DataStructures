@@ -1,0 +1,26 @@
+package redditquestions;
+
+public class FreqIntegerArray {
+
+	public static int retFreq(int[] arr){
+		int tempcount=0;
+		int popular=arr[0];
+		int count=1;
+		for(int i=0;i<arr.length;i++){
+			int temp=arr[i];
+			for(int j=i+1;j<arr.length;j++){
+				if(temp==arr[j]){
+					
+					tempcount++;
+				}
+				if(tempcount>count){
+					popular=temp;
+					count=tempcount;
+				}
+				
+			}
+			
+		}
+		return popular;
+	}
+}

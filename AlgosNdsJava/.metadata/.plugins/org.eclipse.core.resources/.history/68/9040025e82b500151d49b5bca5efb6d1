@@ -1,0 +1,14 @@
+package redditquestions;
+
+public class PrimeNumbers {
+
+	public static void printPrimeNumbers(int n){
+		for(int i=1;i<n;i++){
+			if(i%1==0 && i%i==0 && (i!=1)){
+				System.out.println(i);
+			}
+		}
+		
+	}
+	
+}

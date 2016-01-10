@@ -1,0 +1,32 @@
+package redditquestions;
+
+public class SplittingArrayByDiff {
+	
+	public static int retSplitIndex(int[] input, int k){
+		int i=0;
+		int j=input.length-1;
+		int count=0;
+		while(i!=j){
+			if(count==0){
+				if(k==input[i]){
+					count=1;
+				}
+			}
+			i++;
+			 if(count==1){
+				 if(k==input[j]){
+					 count=0;
+				 }
+				 j--;
+				
+			}
+			
+		}
+		return i+1;
+	}
+	public static void main(String[] args) {
+		int[] input = {5,5,4,7,2,3,5};
+		System.out.println(retSplitIndex(input, 5));
+	}
+
+}
