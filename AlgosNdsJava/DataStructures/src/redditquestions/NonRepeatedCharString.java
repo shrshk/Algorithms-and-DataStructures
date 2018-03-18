@@ -29,6 +29,6 @@ public static char retChar(String input){
 	
 }
 public static void main(String[] args) {
-	System.out.println(retChar("shirish"));
+	System.out.println(retChar("ngrhhqbhnsipkcoqjyviikvxbxyphsnjpdxkhtadltsuxbfbrkof"));
 }
 }

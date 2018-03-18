@@ -13,7 +13,6 @@ public class CommonIntegers {
 					
 					al.add(x[i]);
 					
-					
 				}
 			}
 		}
