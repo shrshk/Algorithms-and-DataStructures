@@ -9,10 +9,8 @@ public class CommonIntegers {
 		
 		for(int i=0;i<x.length;i++){
 			for(int j=0;j<y.length;j++){
-				if(x[i]==y[j]){
-					
-					al.add(x[i]);
-					
+				if(x[i]==y[j]){					
+					al.add(x[i]);					
 				}
 			}
 		}
