@@ -12,7 +12,7 @@ class KsortedArray
 	public static void sortKSortedArray(List<Integer> list, int k)
 	{
 		// create an empty min heap and insert first k+1 elements in the heap
-		PriorityQueue<Integer> pq = new PriorityQueue<>(list.subList(0, k+1));
+		PriorityQueue<Integer> pq = new PriorityQueue<Integer>(list.subList(0, k+1));
 
 		int index = 0;
 
