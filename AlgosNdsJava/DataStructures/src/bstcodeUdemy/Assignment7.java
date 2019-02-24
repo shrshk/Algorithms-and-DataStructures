@@ -1,7 +1,5 @@
 package bstcodeUdemy;
 
-import bstcodeUdemy.BinarySearchTree;
-
 /**
  * Binary Search Tree is a highly recursive data structure. It means that
  * most of the algorithms maybe implemented quite easily using recursion techniques.
@@ -38,6 +36,7 @@ public class Assignment7 {
 		BinarySearchTree bst = BinarySearchTree.createFromSortedArray(data);
 		System.out.println(bst.height());
 		bst.traverseInOrder();
+		System.out.println(bst.numOfLeafNodes());
 	}
 
 }

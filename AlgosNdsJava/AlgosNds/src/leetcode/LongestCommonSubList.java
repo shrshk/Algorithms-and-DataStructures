@@ -35,12 +35,18 @@ public class LongestCommonSubList {
 		return max_length;
 	}
 	
-	public static void main(String[] args) {
-		List<Integer> list1 = new ArrayList<Integer>(Arrays.asList(1,3,2,4,5));
-		List<Integer> list2 = new ArrayList<Integer>(Arrays.asList(2,4,1,3,2));
+	static int isSubArray(Integer[] array, Integer[] subArray) {
+		return Collections.indexOfSubList(Arrays.asList(array), Arrays.asList(subArray));
+	}
 	
-		
-		System.out.println(longestCommon(list1, list2));
+	public static void main(String[] args) {
+		Integer[] array = new Integer[]{2,3,7,1,20};
+		Integer[] subArray = new Integer[]{7,1};
+		// List<Integer> list1 = new ArrayList<Integer>(Arrays.asList(2,3,7,1,20));
+		// List<Integer> list2 = new ArrayList<Integer>(Arrays.asList(7,1));
+	
+		// longestCommon(list1, list2) // 2,4,1,3,2
+		System.out.println(isSubArray(array, subArray));
 	}
 
 }

@@ -23,6 +23,6 @@ public class SubStr {
     }
 	
 	public static void main(String[] args) {
-		System.out.println(strStr("mississippi", "issip")); // "mississippi" 		"issip"
+		System.out.println(strStr("mississippi", "issip")); // "mississippi" "issip"
 	}
 }

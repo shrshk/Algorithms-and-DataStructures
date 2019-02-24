@@ -146,5 +146,6 @@ public class BinarySearchTree {
 		System.out.println(bst.numOfLeafNodes());
 		System.out.println(bst.height());
 		bst.traverseInOrder();
+		bst.numOfLeafNodes();
 	}
 }

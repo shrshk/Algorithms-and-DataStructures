@@ -53,7 +53,7 @@ public class SplitByDifference {
 	public static void main(String[] args) {
 		SplitByDifference sbd = new SplitByDifference();
 		int[] input = {5,5,1,7,2,1,3,5};
-		System.out.println(sbd.solution(5,input));
+		System.out.println(sbd.solution(1,input));
 		
 	}
 

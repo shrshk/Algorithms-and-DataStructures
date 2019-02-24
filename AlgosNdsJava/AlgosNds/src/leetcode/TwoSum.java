@@ -20,7 +20,11 @@ public class TwoSum {
 	
 	public static void main(String[] args) {
 		int[] arr = new int[]{2,7,11,15};
-		System.out.println(retNumbrs(arr, 9));
+		int[] arr2 = retNumbrs(arr, 26);
+		for (int i=0; i<arr2.length; i++) {
+			System.out.println(arr2[i]);
+		}
+		// System.out.println(retNumbrs(arr, 9));
 	}
 
 }

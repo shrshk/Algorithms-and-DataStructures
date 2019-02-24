@@ -83,7 +83,7 @@ public class LinkedList {
 			ref1 = ref1.getNextNode();
 			ref2 = ref2.getNextNode();
 		}
-		int data = ref2.getData();
+		int data = ref2.getData(); // 1 2 3 4 5 6 7 8    k=2       r1 = 3 r2=2  r1 4 r23
 		return data;
 	}
 //	public int findKthElementFromTheEnd(int k,LinkedList list){
@@ -122,9 +122,7 @@ public class LinkedList {
 	}
 	public void DeleteGivenNode(Node x,LinkedList list){
 		Node prev = null;
-		Node current = list.getHead();
-		
-		
+		Node current = list.getHead();		
 			
 			while(current!=null){
 			if(current==x){
@@ -135,7 +133,6 @@ public class LinkedList {
 			}
 			current = current.getNextNode();
 			}
-		
 		
 		
 	}
@@ -160,10 +157,7 @@ public class LinkedList {
 			}
 			slower = slower.getNextNode();
 			faster = faster.getNextNode().getNextNode();
-		}
-		
-		
-		
+		}		
 	}
 	
 	
@@ -191,6 +185,17 @@ public class LinkedList {
 		}
 		return null;
 	}
+	public int findMiddleItem(LinkedList list) {// 1 2 3 4 5
+		Node current = this.head;
+		Node ref1 = current;
+		Node ref2 = current;
+		while(ref1.getNextNode().getNextNode()!=null) {
+			ref1 = ref1.getNextNode().getNextNode();
+			ref2 = ref2.getNextNode();
+		}
+		return ref2.getData();
+	}
+	
 	
 	
 	@Override

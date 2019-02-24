@@ -1,13 +1,11 @@
 package linkedList;
 
-import javax.sound.sampled.ReverbType;
-
 public class LinkedListDemo {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		LinkedList list = new LinkedList();
-		Node x = new Node(23);
+		// Node x = new Node(23);
 		
 		list.insertAtHead(5);
 		list.insertAtHead(10);
@@ -24,10 +22,11 @@ public class LinkedListDemo {
 //System.out.println(list.length());
 //System.out.println(list.reverseLinkedList(list));
 //System.out.println(list.findKthElement(2, list));
-		System.out.println(list);
+		// System.out.println(list);
 //list.appendLastNAtHead(list, 3);
-		System.out.println(list.findKthElementFromTheEnd(1, list));
-System.out.println(list);
+		// System.out.println(list.findKthElementFromTheEnd(1, list));
+        // System.out.println(list);
+		System.out.println(list.findMiddleItem(list));
 	}
 
 }

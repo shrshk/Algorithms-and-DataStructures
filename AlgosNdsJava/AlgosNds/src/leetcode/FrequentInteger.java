@@ -21,7 +21,7 @@ public class FrequentInteger {
 		for(Map.Entry<Integer, Integer> entry: map.entrySet()) {
 			int count = entry.getValue();
 			int num = entry.getKey();
-			if(maxCount<count && count>1) {
+			if(maxCount<count) {
 				maxCount = count;
 				maxCountNum = num;
 			}
@@ -33,7 +33,7 @@ public class FrequentInteger {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int[] arr = new int[]{1,2,3};
+		int[] arr = new int[]{1,2,3,1,4,4,4};
 		System.out.println(new FrequentInteger().freqInt(arr));
 
 	}

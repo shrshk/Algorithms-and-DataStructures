@@ -10,8 +10,7 @@ public class FreqIntegerArray {
 			int temp=arr[i];
 			int tempcount=0;
 			for(int j=1;j<arr.length;j++){
-				if(temp==arr[j]){
-					
+				if(temp==arr[j]){					
 					tempcount++;
 				}
 				if(tempcount>count){
@@ -25,9 +24,8 @@ public class FreqIntegerArray {
 		return popular;
 	}
 	public static void main(String[] args) {
-		int[] x ={1,4,4,5,6};
-		FreqIntegerArray fiar = new FreqIntegerArray();
-		System.out.println(fiar.retFreq(x));
+		int[] x ={1,4,4,5,6};		
+		System.out.println(retFreq(x));
 		
 	}
 }
