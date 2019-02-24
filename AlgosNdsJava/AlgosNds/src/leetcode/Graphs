@@ -1,0 +1,7 @@
+Breadth First Search OverView and Example.
+
+- explore nodes in "layers".
+- can compute shortest paths.
+- connected components of undirected graph.
+
+Runtime O(m+n) linear time.
