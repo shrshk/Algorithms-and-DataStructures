@@ -37,6 +37,6 @@ public class LongestNonRepeatingSubStr {
 //        return ans;
 	}
 	public static void main(String[] args) {
-		System.out.println(nonRepeatingSubStr("geeksforgeeks"));
+		System.out.println(nonRepeatingSubStr("abcabcbb"));
 	}
 }

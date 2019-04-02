@@ -27,6 +27,6 @@ public static boolean isAnagram(String s1, String s2){
 	return true;
 }
 public static void main(String[] args) {
-	System.out.println(isAnagram("shirish", "shirhsi"));
+	System.out.println(isAnagram("aacc", "ccac"));
 }
 }

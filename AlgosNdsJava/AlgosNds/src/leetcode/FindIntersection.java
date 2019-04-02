@@ -1,5 +1,9 @@
 package leetcode;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 class FindIntersection 
 { 
     /* Function prints Intersection of arr1[] and arr2[] 
@@ -28,6 +32,56 @@ class FindIntersection
         int arr2[] = {2, 3, 5, 7}; 
         int m = arr1.length; 
         int n = arr2.length; 
-        printIntersection(arr1, arr2, m, n); 
+        System.out.println(Arrays.toString(findIntersection(arr1, arr2)));
     } 
+    
+    
+   static int[] findIntersection(int[] arr1, int[] arr2) {
+	   Arrays.sort(arr1);
+	   Arrays.sort(arr2);	   
+	   List<Integer> list = new ArrayList<>();
+	   int i=0,j=0;
+	   while (i<arr1.length && j<arr2.length) {
+		   if (arr1[i]<arr2[j]) {
+			   i++;
+		   } else if(arr1[i]>arr2[j]) {
+			   j++;
+		   } else {		   
+			   list.add(arr1[i]);
+			   i++;
+			   j++;
+		   }
+	   }
+	   
+	   int[] result = new int[list.size()];
+	   int x=0;
+	   for (Integer num: list) {
+		   result[x++]=num;
+	   }
+	   
+	   return result;
+   }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 } 
