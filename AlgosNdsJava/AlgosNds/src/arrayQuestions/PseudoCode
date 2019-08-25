@@ -1,0 +1,33 @@
+// missing int
+
+1,2,4
+4
+4*5/2 10-7
+arr[len-1]*arr[len-1]+1/2
+
+
+
+// Longest subStr
+
+GeeksForGeeks
+
+i,j
+i=2
+j=2
+j=i-j+1
+9-7+1
+
+
+Set 
+maxLen = 0
+!set.contains(ch)
+ set.add
+ if(maxLen < set.len)
+    maxLen = setLen
+    i++
+    j++
+  else {
+      
+  }
+  
+ 

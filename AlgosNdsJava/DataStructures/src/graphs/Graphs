@@ -1,0 +1,59 @@
+Graph terminology
+
+Relationship b/w no.of edges and vertices
+For a simple graph with n vertices and m edges,
+
+directed, m = n(n-1)
+undirected, m = n(n-1)/2
+connected, m = n-1
+tree, m = n-1
+forest, m = n-1
+complete, m = n-1
+
+O(m) varies btwn O(1) and O(n^2) depending on how dense graph is.
+
+
+
+
+
+
+Breadth First Search OverView and Example.
+
+- explore nodes in "layers".
+- can compute shortest paths.
+- connected components of undirected graph.
+
+Runtime O(m+n) linear time.
+
+   Graph  
+     
+     
+     3-4-5
+     | | |
+     1 2 6
+     | |
+      0
+     
+2-->4 1 0 
+3-->1 4 
+4-->3 2 5 
+5-->4 6 
+6-->5    
+
+//If you know a solution is not far from the root of the tree:
+BFS
+
+//If the tree is very deep and solutions are rare, 
+BFS (DFS will take long time. )
+
+//If the tree is very wide:
+DFS (BFS will need too much memory)
+
+//If solutions are frequent but located deep in the tree
+DFS
+
+//determining whether a path exists between two nodes
+DFS
+
+//Finding the shortest path
+BFS

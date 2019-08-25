@@ -7,6 +7,7 @@ public class TwoSum {
 	
 	public static int[] retNumbrs(int[] arr, int number) {
 		Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+		// shirish();
 		for(int i=0; i<arr.length;i++) {
 			int complement = number - arr[i];
 			if(map.containsKey(complement)) {
@@ -17,6 +18,14 @@ public class TwoSum {
 		throw new IllegalArgumentException("did not find");
 	}
 	
+	private void shirish() {
+		System.out.println("works");
+	}
+	
+	public void x() {
+		shirish();
+	}
+	
 	
 	public static void main(String[] args) {
 		int[] arr = new int[]{2,7,11,15};
@@ -24,6 +33,8 @@ public class TwoSum {
 		for (int i=0; i<arr2.length; i++) {
 			System.out.println(arr2[i]);
 		}
+		TwoSum ts = new TwoSum();
+		ts.x();
 		// System.out.println(retNumbrs(arr, 9));
 	}
 	
