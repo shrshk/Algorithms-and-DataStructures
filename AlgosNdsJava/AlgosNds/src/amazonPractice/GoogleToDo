@@ -1,0 +1,121 @@
+https://leetcode.com/problems/implement-trie-prefix-tree/
+
+https://www.geeksforgeeks.org/detect-cycle-in-a-graph/
+
+https://leetcode.com/problemset/top-google-questions/?difficulty=Medium
+
+https://leetcode.com/problems/logger-rate-limiter/submissions/
+
+https://leetcode.com/problems/path-with-maximum-gold/
+
+// Trie datastructure
+
+// rank = 0 is highest , rank = 1 is second highest and so on
+insert(name, score)
+getRank(name) 
+getName(rank)
+
+
+pq -> {name: 'x', score: 100}, comparator as score node2.score - node1.score
+
+for (int i=0; i<q.size; i++) {
+	pq.get(0);
+}
+
+// look for name return index.
+
+class Node {
+	int id;
+	Link[] links;
+}
+
+class Link {
+	int bytesPerSec;
+	Node dest;
+}
+
+
+int time(Node root) {
+	// todo
+}
+         node -> visited
+         
+         pq -> sort the nodes based on bytesPerSec to make it fast
+         
+     pq.add(new ConnectNode(id, bytesPerSec));
+     keep track of time
+     return time
+     for (Link link: node.links) {
+      	pq.add(new ConnectNode(dest.id, bytesPerec))
+     }
+
+// if time permits
+
+https://www.geeksforgeeks.org/n-queen-problem-backtracking-3/
+
+[2, 5, 29] 
+
+year = [2,5,29]
+
+// (Y % 4 == 0 and Y % 100 != 0) or (Y % 400 == 0 and Y % 3200 != 0)
+
+1 and 12 month = [2,5]
+
+dayOptions = [29]
+
+
+
+// days
+
+if days ->  [30,29]
+
+if leapYear update days[2] = 29;
+
+if month and day are valid return
+
+
+// steps 
+
+for each year, get month options (other two integers)
+
+for each month get day options (, if the year is a leap year and month is feb, days<=29
+
+ a b c 
+
+ y m d
+ 
+ a b c
+ a c b
+ b c a
+ b a c 
+ c a b
+ c b a 
+ 
+ https://leetcode.com/discuss/interview-question/400968/Google-or-Phone-Screen-or-Valid-Dates
+ 
+ 
+
+https://leetcode.com/discuss/interview-question/391708/Google-or-Phone-Screen-or-Print-Matrix-Diagonally
+
+
+
+https://www.geeksforgeeks.org/cycle-sort/
+
+
+// diagonal print matrix
+
+https://www.techiedelight.com/construct-binary-tree-from-inorder-postorder-traversals/
+
+
+
+
+
+
+
+
+
+
+
+
+
+

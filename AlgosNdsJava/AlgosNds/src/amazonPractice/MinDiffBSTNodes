@@ -1,0 +1,52 @@
+
+
+
+          4
+        /   \
+      2      6
+     / \    
+    1   3  
+    
+    bfs, level order traversal and cal. diff or recursion
+   
+   if (root!=null)   
+   	 leftDiff = root.val-root.left.val;
+   	 rightDiff = root.val-root.right.val;
+   
+   
+int min = Integer.MAX_VALUE;
+Integer pre = null;
+public int minDiffInBST(TreeNode root) {
+    check(root);
+    return min;
+}
+
+private void check(TreeNode node) {
+    if (node == null) return;
+    check(node.left);
+    if (pre != null)
+        min = Math.min(min, node.val - pre);
+    pre = node.val;
+    check(node.right);
+}
+
+
+4,2,1,
+
+1 -> no left or right, come back to 2 
+check left n right and calculate diff 2-1, 3-2
+
+[90,69,null,49,89,null,52,null,null,null,null]
+
+    90
+  69  null
+ 49 89
+      null
+ 
+  
+  
+  
+  
+  
+  
+  

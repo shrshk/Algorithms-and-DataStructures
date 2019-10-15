@@ -1,0 +1,105 @@
+[[2,1,1],[1,1,0],[0,1,1]]
+
+2 1 1
+1 1 0
+0 1 1
+
+2, 1, 1, 1
+
+
+
+// steps
+
+add all rotten oranges to Q
+for each rotten orange explore
+explore all possible paths 
+
+
+steps: 
+
+// add all rotten oranges to queue
+
+// run bfs
+
+// each time while loop starts update time
+
+// keep track of freshFruits if fresh fruits become zero return time
+
+// return -1 from the method
+
+
+static int daysToRotOranges(int[][] grid) {
+
+	Queue<int[][]> rottenOranges = new ArrayDeque<>();
+	rottenOranges = getRottenOranges(int[][] grid);
+	// loop thru the grid to get fresh oranges count
+	int freshOranges = getFreshOranges(int[][] grid);
+	int time = 0;
+	int[][] dirs = {{1,0},{-1,0},{0,1},{0,-1}};
+	while(!rottenOranges.isEmpty()) {
+		time++;
+		int[][] paths = rottenOranges.poll()
+		for (int[] path: paths) {
+			for (int[] dir: dirs) {
+					// find x
+					// find y
+					int x = path[0] + dir[0];
+					int y = path[1] + dir[1];
+					
+					// update x,y to 2 if they are 1 and reachable in other cases just continue
+					// when 1 is made 2 decrease freshFruits count
+					// return time if freshFruitsCOunt is 0
+					// 
+					if (x<0 || y<0 || grid[x][y]==2 || grid[x][y]==0) continue;
+					grid[x][y] = 2;
+					rottenOranges.add()
+					
+ 			}			
+			
+		}
+	}
+	
+	return -1;
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

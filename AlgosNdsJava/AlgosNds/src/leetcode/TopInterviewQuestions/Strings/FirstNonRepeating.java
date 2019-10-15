@@ -20,9 +20,11 @@ public class FirstNonRepeating {
 		int result = c!=' ' && s.indexOf(c)>=0 ? s.indexOf(c) : -1;
 		return result;
 	}
+	
 	public static void main(String[] args) {
 		System.out.println(firstNonRepeating("ii"));
 	}
 }
-// s h i r 
+// s h i r i sh
+// r
 //    r

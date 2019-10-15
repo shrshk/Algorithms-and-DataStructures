@@ -1,0 +1,30 @@
+Input: n = 5, edges = [[1, 2], [2, 3], [3, 4], [4, 5], [1, 5]], edgesToRepair = [[1, 2, 12], [3, 4, 30], [1, 5, 8]]
+
+ 1 
+ 
+ 
+ 
+ 2-3
+ 
+ 
+ 
+ 4-5
+ 
+ 
+ 
+ {
+   1 -> [{2,12},{5,8}]
+   5 -> [{1,8}]
+ }
+ 
+ // start from 1 use pq to keep minCost order.
+ 
+ // steps
+ 
+ // build graph with edges and 0 cost and update the cost with edgesToRepair
+ 
+ // start with the first node {1,0}, run bfs, push connected nodes into pq. (comparator cost)
+ 
+ // update cost after exploring a node
+ 
+ // return cost after exploring all cities.

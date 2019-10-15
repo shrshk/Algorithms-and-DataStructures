@@ -1,0 +1,64 @@
+{ "A", "C" },
+{ "B", "C" },
+{ "C", "F" },
+{ "D", "E" },
+{ "E", "F" },
+{ "F", "F" } 
+
+
+
+C: [A,B]
+
+F: [C,E,F]
+
+E: [D]
+
+A: []
+
+B: []
+
+D: []
+
+
+resMap = {
+	
+}
+                    
+ for (Entry<k,v> entry: relMap) {
+ 	if (entry.getValue().size() == 0)
+ 		resMap.put(entry.getKey(), 0);
+ 	else {
+ 		resMap.put(entry.getKey(), getChildrenCount(entry.getKey(), map));
+ 	}
+ }
+ 	
+return resMap;
+
+
+getChildrenCount(key, map) {
+	List<String> vals = map.get(key);
+	int count = 0;
+	for (String val: vals) {		    
+	     if (map.get(val).size()>0)
+			count = count + getChildrenCount(key, map);
+		}
+	}
+	return count;	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                              
+                                 
+                          

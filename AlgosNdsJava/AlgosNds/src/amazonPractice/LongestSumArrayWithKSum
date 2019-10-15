@@ -1,0 +1,71 @@
+nums = [5, 1, 2, 2, 3, 4, 1], k = 5
+
+static List<List<Integer>> arraysWithKsum(int[] nums, int k) {
+	// steps
+	// use 2 pointers i to loop thru arr j to slide window to get kSum
+	List<List<Integer>> res = new ArrayList<>();
+	int i=0, j=1;
+	int firstSmall = Integer.MAX_VALUE;
+	int secondSmall = Integer.MAX_VALUE;
+	while(i<nums.length-1) {
+		int complement = k - nums[i];
+		int sum = 0;
+		while(j<nums.length) {
+			sum = sum + nums[j];	    
+			if (sum<complement) {
+				j++;
+			} else if (sum == complement) {
+			    List<Integer> subArr = getSubList(nums, i, j);
+			    if (firstSmall > subArr.size()) {
+			    	firstSmall = subArr.size();
+			    	secondSmall = firstSmall;
+			    } else if (secondSmall > subArr.size()) {
+			    	secondSmall = subArr.size();
+			    }
+				res.add(subArr);
+				i++;
+				j=i+1;
+			} else {
+				i++;
+				j=i+1;
+			}
+		}
+	}
+	
+	if (nums[nums.length-1]==k) {
+	   res.add(new ArrayList<>(Arrays.asList(nums[nums.length-1]));
+		        if (firstSmall > subArr.size()) {
+			    	firstSmall = subArr.size();
+			    	secondSmall = firstSmall;
+			    } else if (secondSmall > subArr.size()) {
+			    	secondSmall = subArr.size();
+			    }
+	}	
+	
+}
+
+static List<Integer> getSubList (int[] nums, int start, int end) {
+    int[] dest = Arrays.copyOfRange(nums, start, end);
+    List<Integer> subArr = new ArrayList<>();
+    for (int i: dest) {
+    	subArr.add(i);
+    }
+	return subArr;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

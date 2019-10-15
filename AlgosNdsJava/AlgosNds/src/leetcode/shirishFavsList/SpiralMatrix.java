@@ -12,21 +12,25 @@ public class SpiralMatrix {
 		List<Integer> res = new ArrayList<Integer>();
 
 		while (rowBegin <= rowEnd && colBegin <= colEnd) {
+			// going right
 			for (int i = colBegin; i <= colEnd; i++) {
 				res.add(matrix[rowBegin][i]);
 			}
 			rowBegin++;
+			// going down
 			for (int i = rowBegin; i <= rowEnd; i++) {
 				res.add(matrix[i][colEnd]);
 			}
 			colEnd--;
 			if (rowBegin <= rowEnd) {
+				// going left
 				for (int i = colEnd; i >= colBegin; i--) {
 					res.add(matrix[rowEnd][i]);
 				}
 			}
 			rowEnd--;
 			if (colBegin <= colEnd) {
+				// going up
 				for (int i = rowEnd; i >= rowBegin; i--) {
 					res.add(matrix[i][colBegin]);
 				}

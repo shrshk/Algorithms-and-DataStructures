@@ -49,6 +49,6 @@ public class FirstNonRepeatingCharOptimized {
 	}
 	
 	public static void main(String[] args) {
-		System.out.println(firstNonRepHashMap("leetcode"));
+		System.out.println(firstNonRepeatingChar("leetcode"));
 	}
 }

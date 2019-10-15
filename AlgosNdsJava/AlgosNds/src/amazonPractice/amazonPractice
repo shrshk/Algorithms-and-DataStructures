@@ -1,0 +1,694 @@
+pqpqs
+
+pq
+pqp
+pqpq
+qp
+qpq
+pq
+qs
+
+
+
+// dist.
+
+set -> pq
+
+int count = 0;
+
+for (int i=0; i<str.length; i++) {
+	char start = str[i];
+	int j=i+1;
+	String x = start + "";
+	while(j<str.length) {
+		 x = x + str[j];
+		if (x.length >=k && isDist(x)) {
+			count++;
+		}	
+		j++;	
+	}
+}
+
+
+pq<String> pq = new pq<>((s1,s2)->(s1.compareTo(s2));
+
+
+
+
+
+
+public 
+
+
+
+a = [[1, 2], [2, 4], [3, 6]]
+b = [[1, 2]]
+
+2
+
+5
+
+{
+  5: 0
+  3: 1
+  1: 2
+}
+
+5-2 = 3
+3-2 = 1
+1-2 = -1
+
+minDiff = Integer.Max_value;
+
+
+if (diff>0 && diff<minDiff)
+	minDiff = diff;
+
+	if (complement > 0)
+		map.put(complement, Arrays.asList(a[0])
+
+
+Map<Integer, List<Integer>> map = new HashMap<>();
+
+int closeSum = 0;
+int closeSumIndex1 = 0;
+int closeSumIndex2 = 0;
+	
+for (int i=0; i<a.length; i++) {
+	int currIndex1 = a[0][0];
+	int currVal1 = a[0][1];
+	// int complement = target - currVal1;	
+	for (int j=0; j<b.length; j++) {
+		int currIndex2 = b[0][0];
+		int currVal2 = b[0][1];
+		int sum = currVal1 + currVal2;
+		if (sum <=7 && sum>closeSum) {
+			closeSum = sum;
+			closeSumIndex1 = currIndex1;
+			closeSumIndex2 = currIndex2;
+		}		
+	}	
+}
+
+return new int[] {closeSumIndex1,closeSumIndex2};
+
+a = [[1, 3], [2, 5], [3, 7], [4, 10]]
+b = [[1, 2], [2, 3], [3, 4], [4, 5]]
+
+public List<List<Integer>> aircraftUtilization(int maxTravelDist, int[][] forwardRouteList, int[][] returnRouteList){
+    List<List<Integer>> res = new ArrayList<>();
+    int len1 = forwardRouteList.length, len2 = returnRouteList.length;
+    if(len1 == 0 || len2 == 0) return res;
+    Arrays.sort(forwardRouteList, (int[] a, int[] b) -> (a[1] - b[1]));
+    Arrays.sort(returnRouteList, (int[] a, int[] b) -> (a[1] - b[1]));
+    int left = 0, right = len2 - 1, maxVal = -1;
+    HashMap<Integer, List<List<Integer>>> map = new HashMap<>();
+    while(left < len1 && right >= 0){
+        int sum = forwardRouteList[left][1] + returnRouteList[right][1];
+        if(sum > maxTravelDist){ --right; continue;}
+        if(sum >= maxVal){
+            int r = right;
+            map.putIfAbsent(sum, new ArrayList<>());
+            // check the duplicates 
+            while(r >= 0 && returnRouteList[r][1] == returnRouteList[right][1]){
+                List<Integer> list = new ArrayList<>();
+                list.add(forwardRouteList[left][0]); list.add(returnRouteList[r][0]);
+                map.get(sum).add(list); --r;
+            }
+            maxVal = sum;
+        }
+        ++left;
+    }
+    return map.get(maxVal);
+}
+
+2,4,3
+
+2,3,4
+
+
+
+
+---------------Treasure Island-----------------------------
+
+
+
+Input:
+[['O', 'O', 'O', 'O'],
+ ['D', 'O', 'D', 'O'],
+ ['O', 'O', 'O', 'O'],
+ ['X', 'D', 'D', 'O']]
+
+
+// build graph of all possible paths
+
+int m = input.length();
+int n = input[0].length();
+
+for (int i=0; i<m; i++) {
+	for (int j=0; j<n; j++) {
+		coordinates.add(new Coordinate(i,j));
+	}
+}
+
+// build all edges possible
+
+for (Coordinate c: coordinates) {
+	
+}
+
+
+Input:
+[['O', 'O', 'O', 'O'],
+ ['D', 'O', 'D', 'O'],
+ ['O', 'O', 'O', 'O'],
+ ['X', 'D', 'D', 'O']]
+ 
+ 
+ 
+ 
+ rowBegin = 0;
+ rowEnd = m;
+ colBegin = 0;
+ colEnd = n;
+ 
+ // right is possible
+ 
+ for (colBegin=0; colBegin<rowEnd-1; colBegin++) {
+ 	if (input[rowBegin][colBegin+1]!='D') {
+ 		edges.add(new Edge(new Coordinate(rowBegin,colBegin), new Coordinate(rowBegin, colBegin+1));
+ 	}
+ }
+ 
+
+ 		if (input[i][j] == 'D') {
+			dangers.add(new Coordinate(i,j));
+		}
+List<Coordinate> dangers = new ArrayList<>();
+
+
+ Coordinate {
+  int x;
+  int y;
+ } 
+
+ Edge{
+  Coordinate src;
+  Coordinate target;
+ } 
+
+ Graph {   
+   Map<Coordinate,List<Coordinate>> adjMap = new LinkedHashMap<>();
+   Graph(List<Edge> edges) {
+   		for (Edge edge: edges) {
+   			if (adjMap.get(edge.src) != null)
+   				adjMap.put(edge.src, adjMap.get(edge.src).add(edge.target));
+   			else 
+   				adjMap.put(edge.src, Arrays.asList(edge.target));
+   		}   	
+   }
+ }
+
+for (int i=0; i<m; i++) {
+	for (int j=0; j<n; j++) {
+		// build possible paths
+		buildPaths(i,j)
+	}
+}
+
+List<Edge> edges = new ArrayList<>();
+int dist = 0;
+if (j+1<n && input[i][j+1]!='D') {
+	// right possible
+	edges.add(new Edge(new Coordinate(i,j), new Coordinate(i, j+1));	
+}
+	
+if (j-1>=0 && input[i][j-1]!='D') {
+	// left possible
+	edges.add(new Edge(new Coordinate(i,j), new Coordinate(i, j-1));
+}
+	
+if (i+1<m && input[i+1][j]!='D') {
+	// up possible
+	edges.add(new Edge(new Coordinate(i,j), new Coordinate(i+1, j));
+}
+	
+if (i-1>=0 && input[i-1][j]!='D') {
+	// down possible
+	edges.add(new Edge(new Coordinate(i,j), new Coordinate(i-1, j));
+}
+	
+
+// build graph with these paths
+	Graph g = new Graph(edges);
+
+// run bfs on this graph
+
+Set<Coordinate> discovered = new HashSet<>();
+Node {
+	Coordinate c;
+	int minDist;
+}
+Node first = new Node()
+Queue<Node> q = new ArrayDeque<>();
+
+q.add(new Node(g.adjMap.keySet().iterator().next(),0));
+
+int minDist = 0;
+while(!q.isEmpty) {
+	Node n = q.poll();
+	Coordinate coordinate = n.coordinate;
+	if (input[coordinate.x][coordinate.y]=='X')
+		return minDist;
+	List<Coordinate> coordinates = adjMap.get(coordinate);
+	for (Coordinate c: coordinates) {
+		if (!discovered.contains(c)) {
+			q.add(new Node(c, n.minDist+1));
+			discovered.add(c);
+		}
+	}
+}
+
+return null;
+
+
+-----------------------------------Two Sum twisted-----------------------------------
+
+[20, 50, 40, 25, 30, 10]
+
+1,5
+
+k = target - 30 = 60
+
+{
+	0:[20,40],
+	1:[50,10],
+	2:[40,20],
+	3:[25,35],
+	4:[30,30],
+	5:[10,50]
+
+}
+
+40:20
+
+{20,40}
+{50,10}
+
+40:0
+
+List<Integer> pairs = new ArrayList<>();
+int max = Integer.MIN_VALUE;
+for (int i=0; i<nums.length; i++) {
+	int num = nums[i];
+	int complement = k - nums[i];
+	if (map.containsKey(nums[i])) {
+		if (Math.max(nums[i],map.get(nums[i])>max) {
+			max = Math.max(nums[i],map.get(nums[i]);
+			pair.clear();
+			pairs.add(nums[i]);
+			pairs.add(map.get(nums[i]));
+		}
+	}else {
+		map.put(complement, nums[i])
+	}		
+}
+
+--------------merge sorted lists---------------------------
+
+1->2->4
+1->3->4
+1->1->2->3->4->4
+
+Node dummy = null;
+Node res = new ListNode(0);
+Node prev = res;
+
+
+Node1, Node2
+
+//baseCases
+
+while(Node1!=null && Node2!=null) {
+	if (Node1.val<=Node2.val) {
+		prev.next = Node1;
+		Node1 = Node1.next;
+	}else {
+		prev.next = Node2;
+		Node2 = Node2.next;
+	}
+	prev = prev.next;
+}
+
+if (Node1!=null)
+	prev.next = Node1;
+if (Node2!=null)
+	prev.next = Node2;
+
+--------------isSubTree-------------
+
+
+
+3,4,5,1,2
+
+Queue<TreeNode> q = new ArrayDeque<>();
+
+q.add(s);
+
+while(!q.isEmpty()) {
+	TreeNode current = q.poll();
+	if (isSame(current, t))
+		return true;
+	if (current.left!=null)
+		q.add(current.left);
+	if (current.right!=null)
+		q.add(current.right);	
+}
+return false;
+
+isSame(s,t)
+
+if (s==null && t==null)
+	return true; // both don't have any more children so equal
+if (s==null || t==null)
+	return false; // one of them is longer
+return isSame(s.left, t.left) && isSame(s.right, t.right);
+
+
+-------------------------find number in the sorted matrix----------------------------------
+[
+  [1,   4,  7, 11, 15],
+  [2,   5,  8, 12, 19],
+  [3,   6,  9, 16, 22],
+  [10, 13, 14, 17, 24],
+  [18, 21, 23, 26, 30]
+]
+
+5 -> true
+20 -> false
+
+3 4  5
+
+1 2
+
+
+
+
+
+
+q 1,2,3,4,5
+d 1,2,3,4,5
+
+2
+no links start from 2, 
+add link which ends with 2 to result
+
+
+
+
+Edge {
+	int src;
+	int target;
+	Edge(int src, int target) {
+		this.src = src;
+		this.target = target;
+	}
+}
+
+Graph {
+	Map<Integer, List<Integer>> adjMap = new HashMap<>();
+	Graph(List<List<Integer>> edges, int n) {
+		for (int i=0; i<n; i++) {
+			map.put(i, new ArrayList<>());
+		}
+		for (List<Integer> edge: edges) {			
+			map.put(edge[0], map.get(edge[0].add(edge[1]));
+			map.put(edge[1], map.get(edge[1].add(edge[0]));
+		}
+	}
+}
+
+[[0,1],[1,2],[2,0],[1,3]]
+{	
+	0:[1,2],
+	1:[0,2],
+	2:[0,1],
+	3:[],
+}
+
+
+
+q 0,1,2
+d 0,1,2
+
+
+q 0,2,3,1
+d 0,2,3,1
+d.size < node.size
+res.add(edge)
+
+for (int i=1; i<conns.size(); i++) {
+	if (isDisconnected(connections.subList(i,conns.size()), int n));
+		res.add(connections.get(i-1));
+}
+
+isDisconnected steps
+// build graph with given connections and nodes size
+// run bfs on the graph and add vertices to discovered list 
+// if discovered size < adjMap size isDisconnected is true
+add the edge at the index to result.
+
+
+Graph {
+	Map<Integer, List<Integer>> nodes = new ArrayList<>();
+}
+
+Node {
+	int vert;
+	List<Edge> edges;
+	Node(
+}
+
+
+
+Input:
+userSongs = {  
+   "David": ["song1", "song2", "song3", "song4", "song8"],
+   "Emma":  ["song5", "song6", "song7"]
+},
+songGenres = {  
+   "Rock":    ["song1", "song3"],
+   "Dubstep": ["song7"],
+   "Techno":  ["song2", "song4"],
+   "Pop":     ["song5", "song6"],
+   "Jazz":    ["song8", "song9"]
+}
+
+Output: {  
+   "David": ["Rock", "Techno"],
+   "Emma":  ["Pop"]
+}
+
+for every entry in userSongs find most repeated songs
+
+get genre for each song
+
+songGenresMap
+
+{
+	song1: "rock"
+	song3: "rock"
+	
+}
+
+song to genre
+
+David:[r,t,r,t,j]
+
+{
+	r:2
+	t:2
+	j:1
+}
+
+
+David : {
+	r: 1+1
+	t: 1+1
+	j:1
+}
+
+mostRepCount = 2;
+
+
+maxcount = 0;
+if map.val > maxCount
+mostRep.add
+mostRep : []
+
+
+
+1900, 2000
+
+{
+	
+}
+
+
+10,2
+
+210
+
+
+{
+	firstDigit: 2
+	num: 2
+}
+
+{
+	
+}
+
+
+100%10 = 1
+
+
+
+-------------car market control---------------
+
+{
+	c:1
+	mar: [1,2,3]
+}
+
+{
+	c:2
+	mar: [2,3]
+}
+
+{
+	c:3
+	mar: [4,5]
+}
+
+
+if size == 2
+0
+
+[1,2,3,4,5]
+
+{
+ c1: [4,5],
+ c2: [1,4,5]
+ c3: [1,2,3]
+}
+
+
+[1,2,3] [4,5]
+
+
+[[1,2],[2,3],[4,5]]
+
+
+
+4: [3]
+5: [3]
+1: [1]
+2: [1,2]
+3: [2]
+
+minMerges
+
+
+
+1,3
+
+
+1,2,5,4
+
+
+
+given a list of friends and thier friends, find a friend who has maximum number of common friends with you or any given user.
+
+[
+	{
+	   ...person
+	   friends
+	
+	}
+]
+
+                              1  - 4
+                             /  \
+                            2    3 - 4
+
+1 -> [2,3,4]
+
+2 -> [1]
+
+3 -> [1,4]
+
+
+------------------------movieDurations-----------------------------------------
+
+movieDurations = [90, 85, 75, 60, 120, 150, 125], d = 250
+
+220
+
+max = 
+
+{
+	130: 0
+}
+
+int max=0;
+int largeNum = 0;
+int[] res = new int[2];
+
+for (int i=0; i<arr.length; i++) {
+	int complement = target - arr[i];
+		if (!map.containsKey(complement)) {
+			map.put(complement, i);
+		if (complement + arr[i] > max && complement + arr[i] <= target) {
+			max = complement + arr[i];
+			largeNum = Math.max(arr[map.get(complement)], arr[i]);
+			res[0] = map.get(complement);
+			res[1] = i;
+		} else if (complement + arr[i] == max && complement + arr[i] <= target) {
+			if (Math.max(map.get(complement), arr[i])>largeNum) {
+				largeNum = Math.max(arr[map.get(complement)], arr[i]);
+				max = complement + arr[i];
+			}		
+		}
+	}
+		 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

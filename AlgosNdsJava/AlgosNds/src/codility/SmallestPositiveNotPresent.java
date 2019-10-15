@@ -63,7 +63,15 @@ public class SmallestPositiveNotPresent {
         nums[j] = temp;
     }
 	
+	static int smallestNotPresent(int[] A) {
+        // write your code in Java SE 8
+        // 1,1,2,3,4,6
+		return 1;
+	}
+	
 	public static void main(String[] args) {
-		System.out.println(hashSetSol(new int[]{1,2,0}));
+		System.out.println(hashSetSol(new int[]{1,98,99}));
+		// System.out.println(smallestNotPresent(new int[]{1,3,6,4,1,2}));
+		
 	}
 }

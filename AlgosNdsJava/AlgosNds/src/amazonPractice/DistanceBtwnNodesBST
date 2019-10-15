@@ -1,0 +1,45 @@
+Input: nums = [2, 1, 3], node1 = 1, node2 = 3
+Output: 2
+Explanation:
+     2
+   /   \
+  1     3
+  
+  
+  // insert into bst
+  
+  TreeNode {
+  	int data;
+  	TreeNode left;
+  	TreeNode right;
+  	
+  	TreeNode(int data) {
+  		this.data = data;
+  	}
+  	
+  	
+  	
+  	
+  	
+  }
+  
+  
+  BST {
+  
+  TreeNode root;
+  
+  BST(TreeNode root) {
+  	this.root = root;
+  }
+  
+  public void insert(int data) {
+  	if (root == null)
+  		root = new BST(new TreeNode(data));
+  	else if (data<root.left.data) {
+  		root.left.insert(data);
+  	} else {
+  		root.right.insert(data);
+  	}
+  }
+  	
+  }

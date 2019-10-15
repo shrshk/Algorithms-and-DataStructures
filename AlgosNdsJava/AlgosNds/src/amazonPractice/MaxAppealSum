@@ -1,0 +1,97 @@
+[1, 3, -1]
+
+A[i] + A[j] + abs(i-j)
+
+A[i] + A[j] + i-j;
+A[i] + A[j] - (i-j);
+
+A[i]+i + A[j]-j
+A[i]-i + A[j]+j
+
+
+maxAppeal1 = Integer.minValue;
+maxAppeal2 = Integer.minValue;
+maxIndx1=-1;
+maxIndx2=-1;
+
+for (int i=0; i<arr.length; i++) {
+	int curr1 = A[i]+i;
+	int curr2 = A[i]-i;
+	
+	if (curr1 > maxAppeal1) {
+		maxAppeal1 = curr1;	
+		maxIndx1 = i;
+	}
+	if (curr2 > maxAppeal2) {
+		maxAppeal2 = curr2;	
+		maxIndx2 = i;
+	} 
+		
+}
+
+return new int[]{maxIndx1,maxIndx2};
+
+// sliding window
+
+int i=0, j=1;
+
+while (i<arr.length && j<arr.length) { 
+	while(j<arr.length) {		  
+		int appeal = arr[i] + arr[j] + Math.abs(i-j);
+		if (appeal > maxAppeal) {
+			maxAppeal = appeal;
+			maxAppealIndx1 = i;
+			maxAppealIndx2 = j;
+		}
+		j++;
+	}
+	i++;
+}
+
+
+A[i] + i + A[j]-j
+
+[1,4,1] 4
+
+[1,2,-3] 2
+
+[6, 2, 7, 4, 4, 1, 6]
+
+6 + 0 + 6 - 6
+
+
+
+
+check(TreeNode node) {
+	if (node == null) return 1;
+	check(node.left);
+	if (pre!=null)
+		min = Math.min(min, node.val - prev)
+	pre = node.val;
+	check(node.right);
+}
+
+
+// is Subtree
+
+isSame(TreeNode s, TreeNode t) {
+	if (s == null &&  t == null)
+		return true;
+	if (s == null || t == null)
+		return false;
+	if (s.val!=t.val)
+		
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

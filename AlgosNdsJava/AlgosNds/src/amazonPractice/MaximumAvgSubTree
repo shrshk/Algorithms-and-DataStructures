@@ -1,0 +1,57 @@
+            5
+          6   1
+          
+          
+ // steps
+ 
+ // max (root, root.left, root.right)
+ 
+ -----------Solve all Tree Problems today---------
+ 
+ postOrder 
+
+ leftSum + righSum + root/nodes
+  
+              1
+            /   \
+           2      3
+          / \    / \
+         4   5  6   7
+         
+   
+     
+     if (root == null)
+     	return 0;
+     
+     currSum = Util(leftRootAvg) + Util(rightRootAvg) + root.val
+     
+     ans = Math.max(currSum, ans)
+     
+     
+     // steps
+     
+     recursively find sum, cnt and maxThree of subtrees 
+    
+     use the solns to form the final solution.
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
