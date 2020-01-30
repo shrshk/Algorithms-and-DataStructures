@@ -1,0 +1,73 @@
+const apps = [
+    {
+        name: 'InstaPic',
+        platform: 'ANDROID'
+    },
+    {
+        name: 'MadBirds',
+        platform: 'IOS'
+    },
+    {
+        name: 'NetMovies',
+        platform: 'ANDROID'
+    },
+    {
+        name: 'WeTalk',
+        platform: 'WINDOWS'
+    },
+];
+
+const platforms = [
+    {
+        name: 'IOS',
+        features: [
+            'APP_MANAGEMENT',
+            'FIREWALL',
+        ],
+    },
+    {
+        name: 'ANDROID',
+        features: [
+            'FIREWALL',
+            'KIOSK_MODE',
+        ],
+    },
+    {
+        name: 'WINDOWS',
+        features: [
+            'KIOSK_MODE',
+            'REMOTE_ACCESS',
+        ],
+    },
+];
+
+const platformsByFeature = platforms.filter((p) => p.features && p.features.includes('KIOSK_MODE'));
+
+// console.log(platformsByFeature);
+
+const platformsFiltered = platformsByFeature.map(p => p.name);
+let result = [];
+
+for (const app of apps) {
+  console.log(platformsFiltered.includes('WINDOWS'));
+  console.log(app.name);
+  if (platformsFiltered.includes(app.platform)){
+    console.log(app.name);
+    result.push(app.name);
+  }
+}
+
+console.log(result);
+function getAppNamesWithFeature(apps, platforms, featureName) {
+  const platformsByFeature = platforms.filter((p) => p.features.includes(featureName));
+
+
+  let result = [];
+
+  for (const app of apps) {
+    if (platformsFiltered.includes(app.platforms)){
+      result.push(app.name);
+    }
+  }
+  return result;
+}

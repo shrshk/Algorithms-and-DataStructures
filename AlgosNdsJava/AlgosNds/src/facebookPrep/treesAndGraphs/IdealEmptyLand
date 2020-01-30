@@ -1,0 +1,50 @@
+[1,0,2,0,1],
+[0,0,0,0,0],
+[0,0,1,0,0]
+
+
+// for every empty land find total distance to all buildings 
+// for every dir find dist. to all buildings 
+
+int buildingCount = 0;
+List<int[]> emptySpots = new ArrayList<>();
+for (int i=0; i<M.length; i++) {
+	for (int j=0; j<M[0].length; j++) {
+		if (M[i][j]==1) {
+			buildingCount++;
+		} else if (M[i][j]==0) {
+			emptySpots.add({i,j});
+		}
+	}
+}
+
+int minDist = Integer.MAX_VALUE;
+
+for (int[] emptySpot : emptySpots) {
+	int dist = bfs(emptySpot, M);
+	minDist = Math.min(dist, minDist);
+}
+
+private int bfs(int[] emptySpot, int[][] M, int buildingCount) {
+	int[][] dirs = new int[][]{{1,0},{0,1},{-1,0},{0,-1}};
+	int count = 0;
+	int dist = 0;
+	List<int[]> visited = new ArrayList<>();
+	while(count<buildingCount) {
+		Queue<int[]> q = new ArrayDeque<>();
+		q.add(emptySpot);
+		int[] spot = q.poll();
+		 for (int[] dir : dirs) {		 	
+			int x = spot[0] + dir[0];
+			int y = spot[1] + dir[1];
+			if (M[x][y]==1 && !visited.contains(new int[]{x,y})) {
+				count++;
+				visited.add(new int[]{x,y});
+			} else if (M[x][y]==0) {
+				q.add(new int[]{x,y});
+			}
+			dist++;			
+		}
+	}
+
+}

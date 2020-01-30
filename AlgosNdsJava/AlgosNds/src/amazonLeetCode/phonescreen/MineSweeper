@@ -1,0 +1,60 @@
+Pacific ~   ~   ~   ~   ~ 
+       ~  1   2   2   3  (5) *
+       ~  3   2   3  (4) (4) *
+       ~  2   4  (5)  3   1  *
+       ~ (6) (7)  1   4   5  *
+       ~ (5)  1   1   2   4  *
+          *   *   *   *   * Atlantic
+          
+          
+     // add bottom left and top right to result
+     
+     // if x == 0 || y == 0 pacific
+     
+     // if x == m-1 || y == n-1 atlantic
+     
+     // for given cell go in 4 directions until pacific and atlantic are reached
+     
+     // if both reached add cell to result
+     
+  
+  
+   
+  q.add(new int[]{i,j});
+  
+  int[][] dirs = new int[][]{{1,0},{-1,0},{0,1},{0,-1}};
+  
+  // if val. <= curr add to q.
+  boolean pacific = false;
+  boolean atlantic = false;
+  while(!q.isEmpty()) {
+    int[] current = q.poll();
+    int currX = current[0];
+    int currY = current[1]; 
+    if (currX == 0 || currY == 0) {
+    	pacific = true;
+    } else if (currX == m-1 || currY == n-1) {
+    	atlantic = true;
+    }
+  	for (int[] dir: dirs) {
+  		int x = currX + dir[0];
+  		int y = currY + dir[1];
+  		if (x<0 || y<0 || x>currX || y>currY || x>=m || y>=n) {
+  			continue;
+  		}
+  		q.add(new int[]{x,y});
+  	}
+  }
+  
+  return pacific && atlantic;
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

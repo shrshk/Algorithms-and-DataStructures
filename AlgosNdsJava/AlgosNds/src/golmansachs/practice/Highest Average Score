@@ -1,0 +1,98 @@
+[{"Bob","87"}, {"Mike", "35"},{"Bob", "52"}, {"Jason","35"}, {"Mike", "55"}, {"Jessica", "99"}]
+
+
+map {"bob": [87,52,]}
+
+class Student {
+	String name;
+	String marks;
+	
+	Student (String name, String marks) {
+		this.name = name;
+		this.marks = marks;
+	}
+}
+
+
+class StudentAverage {
+	public int studentWithHighestAvgMarks(List<Student> students) {
+		int res = 0;
+		Map<String, List<Integer>> avgMap = new HashMap<>();
+		for (Student student: students) {
+			Map.put(map.getOrDefault(student.name, new ArrayList<>()).add(Integer.parseInt(student.marks)));
+			res = Math.max(res, average(student.name, avgMap));
+		}
+		
+		return res;
+	}
+	
+	private int average(String name, Map<String, List<Integer>> map) {
+		int total = 0;
+		List<Integer> marks = map.get(name);		
+		for (int score : marks) {
+			total+=score;
+		}		
+		return Math.floor(total/marks.size());		
+	}
+}
+
+
+
+
+
+import java.util.Map.Entry;
+
+class Solution {
+    public int[][] highFive(int[][] items) {
+        Map<Integer, List<Integer>> map = new HashMap<>();
+        for (int[] item: items) {
+            int id = item[0];
+            int score = item[1];
+            List<Integer> scores = map.getOrDefault(id, new ArrayList<>());
+            scores.add(score);
+            map.put(id, scores);
+        }
+        System.out.println(map.toString());
+        int[][] res = new int[map.size()][2];
+        int count=0;
+        for (Entry<Integer, List<Integer>> entry: map.entrySet()) {
+            int id = entry.getKey();
+            List<Integer> scores = entry.getValue();
+            int avg = average(scores);
+            res[count++] = new int[]{id, avg};
+        }
+        Arrays.sort(res, (int[] item1, int[] item2) -> item1[0] - item2[0] );
+        return res;
+    }
+    
+    private int average (List<Integer> scores) {
+        int sum = 0;
+        scores.sort((Integer s1, Integer s2) -> s2 - s1);
+        for (int i=0; i<5; i++) {
+            sum+=scores.get(i);
+        }
+        int size = scores.size() <=5 ? scores.size() : 5;
+        return (int) sum/size;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

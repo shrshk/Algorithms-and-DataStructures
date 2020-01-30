@@ -1,0 +1,46 @@
+  [0,1,2,0],
+  [3,4,5,2],
+  [1,3,1,5]
+  
+  [0,1,2,0],
+  [0,4,5,0],
+  [1,3,1,5]
+  
+  
+  
+  
+  take all the zero coordinates into queue
+  
+  boolean arr to keep track of visited nodes.
+  
+  Queue<int[]> q = ArrayDeque<>();
+  
+  q.add(// all zero coordinates)
+  
+  boolean[][] visited = new boolean[m][n];
+  
+  
+  while(!q.isEmpty()) {
+  	int size = q.size();
+  	for (int i=0; i<size; i++) {
+  		int[] pos = q.poll();
+  		int x = pos[0];
+  		int y = pos[1];
+  		for (int j=0; j<n; j++) {
+  			grid[x][j] = 0;
+  		}
+  		for (int k=0; k<m; k++) {
+  			grid[k][y] = 0;
+  		}
+  	}
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

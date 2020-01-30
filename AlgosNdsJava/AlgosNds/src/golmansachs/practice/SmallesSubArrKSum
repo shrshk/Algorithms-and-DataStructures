@@ -1,0 +1,85 @@
+
+
+1,2,3,4
+
+
+1: 
+
+
+
+1 : 5
+
+ {
+    0:1
+    1:1
+    3:1
+    6:1
+    
+  }
+  
+  sum=1
+  
+  6 
+  
+  count=3
+  
+   {1,2,3,4}
+
+ 
+ i=0
+ j=0
+ 
+ n= arr.length-1;
+ 
+ minLen = I;
+ 
+ while(i<n) {
+ 	int count=0;
+ 	while(j<n && count<s) {
+ 		count+=nums[j++]; 		
+ 	}
+ 	if (count
+ }
+
+ 
+ 
+ 
+ int n = nums.length;
+        int i=0, j=0;
+        int minLen = n;
+        while(i<n) {
+            int count=0;
+            while(j<n && count<s) {
+                count+=nums[j++];                
+            }            
+            if (count<s && j-i==n) {
+                minLen=0;
+            } else if (count>s && j-i<n) {
+                minLen = Math.min(minLen, j-i);
+            }else if (count==s) {
+                minLen = Math.min(minLen, j-i);
+            }
+            i++;
+            j=i;
+        }
+        
+        return minLen;
+        
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

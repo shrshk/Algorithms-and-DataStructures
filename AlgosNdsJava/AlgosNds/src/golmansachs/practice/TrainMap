@@ -1,0 +1,117 @@
+public class TrainBFS {
+  /**
+   * class Station
+   * <p>
+   * Respresents Station in the rail network. Each station is identified by
+   * unique name. Station is connected with other stations - this information
+   * is stored in the 'neighbours' field. Two station objects with the same name are
+   * equal therefore they are considered to be same station.
+   */
+  private static class Station {
+    private String name;
+    private List<Station> neighbours;
+
+    public Station(String name) {
+      this.name = name;
+      this.neighbours = new ArrayList<>(3);
+    }
+
+    String getName() {
+      return name;
+    }
+
+    void addNeighbour(Station v) {
+      this.neighbours.add(v);
+    }
+
+    List<Station> getNeighbours() {
+      return this.neighbours;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+      return obj instanceof Station && this.name.equals(((Station) obj).getName());
+    }
+
+    @Override
+    public int hashCode() {
+      return Objects.hash(this.name);
+    }
+  }
+
+  /**
+   * class TrainMap
+   * <p>
+   * Respresents whole rail network - consists of number of the Station objects.
+   * Stations in the map are bi-directionally connected. Distance between any 2 stations
+   * is of same constant distance unit. This implies that shortest distance between any
+   * 2 stations depends only on number of stations in between
+   */
+  private static class TrainMap {
+
+    private HashMap<String, Station> stations;
+
+    public TrainMap() {
+      this.stations = new HashMap<>();
+    }
+
+    public TrainMap addStation(String name) {
+      Station s = new Station(name);
+      this.stations.putIfAbsent(name, s);
+      return this;
+    }
+
+    public Station getStation(String name) {
+      return this.stations.get(name);
+    }
+
+    public TrainMap connectStations(Station fromStation, Station toStation) {
+      if (fromStation == null) {
+        throw new IllegalArgumentException("From station is null");
+      }
+      if (toStation == null) {
+        throw new IllegalArgumentException("From station is null");
+      }
+      fromStation.addNeighbour(toStation);
+      toStation.addNeighbour(fromStation);
+      return this;
+    }
+
+    public List<Station> shortestPath(String from, String to) {
+    /*
+     * TODO Implement
+     */
+     
+     Map<String, Boolean> visited = new HashMap<>();
+     
+     List<Station> result = new ArrayList<>();  
+          
+     // Queue<Station> q = new ArrayDeque<>();
+     
+     q.add(stations.get(from));
+     
+     while (!q.isEmpty()) {
+     	int size = q.size();
+     	for (int i=0; i<size; i++) {
+     		Station current = q.poll();
+     		result.add(current);
+     		if (visited.get(current.name))
+     			continue;
+     		visited.put(visited.getOrDefault(current.name, false), true);
+     		for(Station neighbor : current.getNeighbours()) {
+     			if (!visited.getOrDefault(neighbor.name, false))
+     				q.add(neighbor);
+     		}
+     	}
+     }     
+      
+      return result;
+    }
+
+    public static String convertPathToStringRepresentation(List<Station> path) {
+      if (path.isEmpty()) {
+        return "";
+      }
+      return path.stream().map(Station::getName).reduce((s1, s2) -> s1 + "->" + s2).get();
+    }
+  }

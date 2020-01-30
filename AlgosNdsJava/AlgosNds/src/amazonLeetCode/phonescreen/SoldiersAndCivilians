@@ -1,0 +1,51 @@
+[
+[1, 1, 1, 0, 0, 0]
+[1, 1, 0, 0, 0, 0]
+[1, 1, 1, 1, 0, 0]
+[1, 1, 0, 0, 0, 0]
+]
+
+k=2
+
+class Row {	
+	int id;
+	int[] row;
+	Row(int id, int[] row){
+		this.id = id;
+		this.row = row;
+	}
+}
+
+Queue<Row> pq = new PriorityQueue<>(new Comparator() {
+	return count(o1)-count(o2);
+});
+
+private int count(int[] row) {
+	int count=0;
+	for (int member: row) {
+		if (member==1)
+			count++;
+	}
+	return count;
+}
+
+for (int i=0;i<m;i++) {
+	pq.add(new Row(i, matrix[i]));
+}
+
+List<Integer> res = new ArrayList<>();
+while (k>0) {
+	res.add(pq.poll().id);
+	k--;
+}
+
+
+return res;
+
+
+
+
+
+
+
+

@@ -1,0 +1,52 @@
+// oven envier erase serious
+// ovenvieraserious
+// ovenvieraserious
+
+// move over very
+
+// movery
+
+const merge = (s1, s2) => {
+  let  i=0;
+  let  j=0;
+  let res = '';
+  let min = 0;
+  while (i<s1.length && j<s2.length) {
+    if (s1[i]!=s2[j]) {
+      res+=s1[i];
+      i++;
+    } else {
+      res+=s1[i];
+      i++;
+      j++;
+      min++;
+    }
+  }
+  while (i<s1.length) {
+    res+=s1[i];
+    i++;
+  }
+  while (j<s2.length) {
+    res+=s2[j];
+    j++;
+  }
+  return {
+    res,
+    min
+  };
+};
+
+// const arr = ['move', 'over', 'very']; // const arr = ['oven', 'envier', 'erase', 'serious'];
+
+const arr = ['to', 'ops', 'psy', 'syllable'];
+
+let current = arr[0];
+let minRes = Number.MAX_SAFE_INTEGER;
+for (let i=0; i<arr.length; i++) {
+  const {res, min} = merge(current, arr[i]);
+  minRes = Math.min(minRes, min);
+  current = res;
+}
+
+console.log(current);
+console.log(minRes);

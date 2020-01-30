@@ -108,6 +108,31 @@ https://www.techiedelight.com/construct-binary-tree-from-inorder-postorder-trave
 
 
 
+// Backtracking
+
+
+Given an array A that is a permutation of n numbers [1-n]. Find the number of subarrarys S that meets the following condition max(S) - min(S) = length(S) - 1.
+
+Example 1:
+
+Input: [4, 3, 1, 2, 5]
+Output: 10
+Explanation:
+subarrays that meets the condition are
+[4]
+[3]
+[1]
+[2]
+[5]
+[4 3]
+[1 2]
+[3 1 2]
+[4 3 1 2]
+[4 3 1 2 5]
+
+There are 10 subarray that meets the condition, so the answer should be 10.
+
+Is there a better than O(n^2) solution?
 
 
 

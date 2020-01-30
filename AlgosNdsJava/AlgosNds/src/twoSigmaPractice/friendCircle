@@ -1,0 +1,36 @@
+[[1,1,0],
+ [1,1,0],
+ [0,0,1]]
+ 
+ 
+ 
+ 0, 1 -> friends
+ 
+
+ 
+ boolean [][] visited = new boolean[m][n];
+ 
+ for (int i=0; i<m; i++) {
+ 		if (!visited[i][i]) {
+ 		    count++;
+ 			bfs(i, visited);	
+ 		}
+			
+ }
+ 
+ bfs(int i, boolean[][] visited, int[][] M) {
+ 	Queue<Integer> q = new ArrayDeque<>();
+ 	q.add(i);
+ 	while(!q.isEmpty()) {
+ 		int size = q.size();
+ 		for (int i=0; i<size; i++) {
+ 			int j=q.poll();
+ 			visted[j][j] = true;
+ 			for (int k=j; k<m; k++) {
+ 				if (!visted[k][k] && M[j][k]==1) {
+ 					q.add(k);
+ 				}
+ 			}
+ 		}
+ 	}
+ }

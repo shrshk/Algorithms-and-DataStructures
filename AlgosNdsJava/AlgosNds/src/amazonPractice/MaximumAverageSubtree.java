@@ -31,8 +31,7 @@ public class MaximumAverageSubtree {
 		double childAvg = Math.max(left[2], right[2]);
 		double maxAvg = sum/cnt;
 		return new double[]{sum, cnt, Math.max(childAvg, maxAvg)};
-//		double n = Math.max(left[2], right[2]);
-		
+//		double n = Math.max(left[2], right[2]);		
 	}
 	
 	public static void main(String[] args) {
