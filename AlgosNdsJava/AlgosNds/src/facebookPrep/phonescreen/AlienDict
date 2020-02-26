@@ -1,0 +1,46 @@
+
+
+hlabcdefgijkmnopqrstuvwxyz
+
+["hello","leetcode"]
+
+Map
+
+{
+	h:0
+	l:1
+    a:2
+}
+
+int i=0;
+
+while (i<words.length()-1) {
+	String word1 = words[i];
+	String word2 = words[i+1];
+	
+    if (!compare(word1,word2)) {
+    	return false;
+    }
+    
+    i++;
+
+	
+}
+
+return true;
+
+private boolean compare(String s1, String s2) {
+	int j=0; int k=0;
+	
+	while (j<s1.length() && k<s2.length()) {
+		if (map.get(s1.charAt(j)) > map.get(s2.charAt(k))) {
+			return false;
+		}
+		
+		j++;
+		k++;
+	}
+	
+	return true;
+}
+

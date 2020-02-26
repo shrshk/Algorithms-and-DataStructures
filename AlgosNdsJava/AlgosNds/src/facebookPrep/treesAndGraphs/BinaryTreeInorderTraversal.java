@@ -1,8 +1,12 @@
 package facebookPrep.treesAndGraphs;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Stack;
+import java.util.stream.Collectors;
+
+
 
 class TreeNode {
 	TreeNode left;
@@ -51,12 +55,18 @@ public class BinaryTreeInorderTraversal {
 	}
 
 	public static void main(String[] args) {
-		TreeNode root = new TreeNode(1);
-		root.left = new TreeNode(2);
-		root.right = new TreeNode(3);
-		root.left.left = new TreeNode(4);
-
+		TreeNode root = new TreeNode(7);
+		root.left = new TreeNode(3);
+		root.right = new TreeNode(15);
+		root.right.left = new TreeNode(9);
+		root.right.right = new TreeNode(20);
+System.out.println(3/2);
 		System.out.println(new BinaryTreeInorderTraversal().inorderTraversalIterative(root));
+		
+		List<Integer> x = Arrays.asList(2,1,3,4);
+		List<Integer> xx = x.stream().filter(item -> item>=2 && item<=4).collect(Collectors.toList());
+		
+		System.out.println(xx);
 
 	}
 }

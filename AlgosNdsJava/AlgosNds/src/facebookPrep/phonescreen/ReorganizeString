@@ -1,0 +1,36 @@
+S = "aab"
+
+
+{ 
+  a: 2
+  b: 1 
+ }
+
+  Map<String, Integer> map = new HashMap<>();
+  
+  for (char c: S.toCharArray()) {
+  	map.put(c, map.getOrDefault(c,0)+1);
+  }
+  
+  Queue<Character> q = new ArrayDeque<>(new Comparator<Character>() {
+  	public int Compare(Character c1, Character c2) {
+  		return map.get(c2) - map.get(c1);
+  	}
+  });
+  
+  int startIndx = 0
+  
+  while(!q.isEmpty()) {
+  	char c = q.poll();
+  	int count = map.get(c);
+  	int index = startIndx;
+  	for (int i=0; i<count; i++) {
+  		res[index] = c;
+  		index = index + 2;
+  	}
+  	startIndx++;  	
+  	
+  }
+  
+  return String.valueOf(res);
+      

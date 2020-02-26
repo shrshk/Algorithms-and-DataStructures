@@ -1,0 +1,27 @@
+nums1 = [1,2,2,1], nums2 = [2,2]
+
+2,2
+
+nums1 = [4,9,5], nums2 = [9,4,9,8,4]
+
+4,9
+
+
+
+1,1,2,2
+
+2,2
+
+What if the given array is already sorted? How would you optimize your algorithm?
+What if nums1's size is small compared to nums2's size? Which algorithm is better?
+What if elements of nums2 are stored on disk, and the memory is limited such that you cannot load all elements into the memory at once?
+
+// LongestSubString atmost K
+
+s = "eceba", k = 2
+
+ece 
+2 or less dist. chars
+
+[ec]
+

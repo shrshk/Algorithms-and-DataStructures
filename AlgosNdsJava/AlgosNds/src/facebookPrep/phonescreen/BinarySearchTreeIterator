@@ -1,0 +1,39 @@
+3 7 9 15 20
+
+
+// keep track of curr
+
+if (root.left!=null)
+  inOrder(root.lefttt
+  
+  
+  3 
+  7 
+  9 
+  15 
+  20
+  
+  
+  
+    7
+  3      9
+      15    20
+     
+ 
+ 15
+ 9
+ 
+   3 7 15 9 20
+      
+     Stack<TreeNode> stack = new Stack();
+        List<Integer> res = new ArrayList();
+        while (root != null || !stack.isEmpty()) {
+            while (root != null) {
+                stack.push(root);
+                root = root.left;
+            }
+            root = stack.pop();
+            res.add(root.val);
+            root = root.right;
+        }
+        return res;

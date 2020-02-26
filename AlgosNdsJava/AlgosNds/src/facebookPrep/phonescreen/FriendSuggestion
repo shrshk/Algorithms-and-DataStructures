@@ -1,0 +1,82 @@
+Person: {int id, Set<Person> friends}
+
+Person A: [B, C]
+Person B: [A, D, E]
+Person C: [A, D, F]
+Person D: [B, C, E]
+Person E: [B, D, F]
+Person F: [C, E]
+
+
+
+                A
+               / \
+              B   C
+              |\
+              D E
+              
+              
+              adjMap
+              
+              A frdsSet -> [B,C]
+           
+              AllFrds -> [A,B,C,D,E,F]
+              
+              q-> []
+              
+              set.add(Person);
+              
+      Set<Person> visited = new HashSet<>();
+      
+      Set<Person> aFrds = A.friends;
+      
+     for (Person person: A.friends) {
+     	q.add(person);
+     }
+     
+     int maxCommon = 0;
+     Person maxCommonPerson = null;
+     
+     while(!q.isEmpty()) {
+     	Person current = q.poll();
+     	if (visited.contains(current)) {
+     		continue;
+     	}
+     	visited.add(current);
+     	int count = 0;
+     	for (Person person: current.friends) {     	    
+     		if (aFrds.contains(person)) {
+     			count++;
+     		}
+     		if (!visited.contains(person))
+     			q.add(person);
+     	}
+     	
+     	if (maxCommon < count) {
+     		maxCommon = count;
+     		maxCommonPerson = current;
+     	}
+     	
+     }
+              
+     return maxCommonPerson;   
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+          
+   
+   
+              
+             

@@ -46,12 +46,13 @@ public class KclosestPointsToOrigin {
 	}
 
 	public int[][] kClosestOpt(int[][] points, int K) {
-		Queue<int[]> pq = new PriorityQueue<int[]>(new Comparator<int[]>() {
-			@Override
-			public int compare(int[] p1, int[] p2) {
-				return distance(p2) - distance(p1);
-			}
-		});
+		// Queue<int[]> pq = new PriorityQueue<int[]>(new Comparator<int[]>() {
+		// @Override
+		// public int compare(int[] p1, int[] p2) {
+		// return distance(p2) - distance(p1);
+		// }
+		// });
+		Queue<int[]> pq = new PriorityQueue<int[]>((int[] p1, int[] p2) -> distance(p2) - distance(p1));
 		for (int[] p : points) {
 			pq.add(p);
 			if (pq.size() > K)
@@ -77,7 +78,7 @@ public class KclosestPointsToOrigin {
 
 		int[][] res = new KclosestPointsToOrigin().kClosestOpt(points, 7);
 
-		for (int[] pt: res)
+		for (int[] pt : res)
 			System.out.println(Arrays.toString(pt));
 	}
 }

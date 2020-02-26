@@ -17,10 +17,17 @@ public class LetterCombinationOfPhoneNumber {
         while(ans.peek().length()!=digits.length()) {
             String head = ans.remove();
             String map = mappings[digits.charAt(head.length())-'0'];
+            System.out.println(head);
             for (char c: map.toCharArray()) {
+            	//System.out.println("head" + " " + head);
+            	// System.out.println("" + " " + c);
                 ans.addLast(head+c);
             }
         }
         return ans;
     }
+    
+    public static void main(String[] args) {
+		System.out.println(new LetterCombinationOfPhoneNumber().letterCombinations("23"));
+	}
 }
