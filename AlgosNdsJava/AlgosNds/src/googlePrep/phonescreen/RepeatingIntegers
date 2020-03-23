@@ -1,0 +1,38 @@
+
+
+[1, 1, 2, 3] and [2, 2]
+
+// false
+
+[1,1] [2]  // true
+
+{
+  3,2,1,1
+}
+
+3 -> 1
+2 -> 0
+1 -> 2
+
+2,1,0
+
+
+    
+    return result.isEmpty();
+    
+    
+ boolean hasRepeats(List<Integer> numbers, List<Integer> repeats) {
+ 	Map<Integer, Integer> map = new HashMap<>();
+ 	for (Integer num: numbers) {
+ 		map.put(num, map.getOrDefault(num,0)+1); 		
+ 	}
+ 	
+ 	List<Integer> freqs = new ArrayList<>(map.values());
+ 	
+ 	List<Integer> result = Arrays.stream(repeats)
+    .filter(el -> Arrays.stream(freqs).noneMatch(el::equals))
+    .collect(Collectors.toList());
+ 	
+ 	return result.isEmpty();
+ }
+ 

@@ -1,7 +1,9 @@
 package facebookPrep.arraysAndStrings;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
@@ -77,6 +79,8 @@ public class KclosestPointsToOrigin {
 				{ -4, -9 } };
 
 		int[][] res = new KclosestPointsToOrigin().kClosestOpt(points, 7);
+		List<Integer> list = new ArrayList<>();
+		System.out.println(list.isEmpty());
 
 		for (int[] pt : res)
 			System.out.println(Arrays.toString(pt));
