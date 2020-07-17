@@ -1,0 +1,12 @@
+
+
+     1->2-> curr.next = null 
+3->4        last.next = head;
+
+
+3->4->1->2
+
+pre = null;
+
+current = 
+

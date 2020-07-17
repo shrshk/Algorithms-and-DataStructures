@@ -5,12 +5,12 @@ public class StringToIntAtoi {
         int index = 0;
         int total = 0;
         int sign = 1;
-        
+         
         // Check if empty string
         if(str.length() == 0)
             return 0;
         
-        // remove white spaces from the string
+        // remove wshite spaces from the string
         while(index < str.length() && str.charAt(index) == ' ')
             index++;
         

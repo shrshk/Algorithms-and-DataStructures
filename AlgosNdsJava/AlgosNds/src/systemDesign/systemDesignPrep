@@ -1,0 +1,77 @@
+
+
+
+Traffic Intersection System Design
+
+
+// features
+
+ -- signal on/off g,r,y
+ 
+ -- synchronize signals
+ 
+ -- turn the traffic
+ 
+ 
+ 
+                   t=0
+                   
+               t1 -> g
+               t2 -> r
+               
+          
+          TrafficIntersection {
+               TrafficLight t1,
+               TrafficLight t2,
+               timer
+               
+          }     
+          
+        g->y
+        y->r  
+        r->g   
+        
+
+
+
+
+
+[2,3]                 [1,7]  
+
+
+             [7]              1  
+             
+             
+             
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+        
+        
+        

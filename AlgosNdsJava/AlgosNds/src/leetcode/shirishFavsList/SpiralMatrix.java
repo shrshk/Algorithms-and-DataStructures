@@ -41,6 +41,37 @@ public class SpiralMatrix {
 		return res;
 	}
 
+	int equilibrium(int arr[]) {
+		int n = arr.length;
+		int left, right;
+		int leftsum, rightsum;
+
+		/*
+		 * Check for indexes one by one until an equilibrium index is found
+		 */
+		for (left = 0; left < n; ++left) {
+
+			/* get left sum */
+			leftsum = 0;
+			for (right = 0; right < left; right++)
+				leftsum += arr[right];
+
+			/* get right sum */
+			rightsum = 0;
+			for (right = left + 1; right < n; right++)
+				rightsum += arr[right];
+
+			/*
+			 * if leftsum and rightsum are same, then we are done
+			 */
+			if (leftsum == rightsum)
+				return left;
+		}
+
+		/* return -1 if no equilibrium index is found */
+		return -1;
+	}
+
 	public static void main(String[] args) {
 		int[][] matrix = new int[3][3];
 		int x = 1;

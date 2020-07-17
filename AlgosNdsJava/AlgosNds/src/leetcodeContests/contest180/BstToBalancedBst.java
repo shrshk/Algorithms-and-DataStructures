@@ -34,7 +34,7 @@ public class BstToBalancedBst {
 		if (low > high) {
 			return root;
 		}
-
+		
 		// find middle element of current range
 		int mid = (low + high) / 2;
 

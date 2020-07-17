@@ -1,0 +1,10 @@
+int diameter = 0;
+
+if (root == null)
+	return diameter;
+
+dL = diameter(root.left)
+dR = diameter(root.right)
+longPath = 1 + height(root)
+
+return Math.max(longPath, Math.max(dL,dR));

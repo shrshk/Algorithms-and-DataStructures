@@ -1,0 +1,56 @@
+let left = {
+     left: null
+     right: null
+     val: 3
+ }
+ 
+ let right = {
+     left: null
+     right: null
+     val: 4
+ }
+ 
+ let root = {
+     left: left,
+     right: right,
+     val: 2
+     
+ }
+ 
+ let inOrderList = [];
+ const inOrderTraversal = (root) => {    
+    helper(root);
+    return inOrderList;
+ }
+ 
+ const helper = (root) => {
+    if (root == null)
+        return;
+    helper(root.left);
+    inorderList.push(root.val);
+    helper(root.right);  
+ }
+ 
+ private void helper(TreeNode root, List<Integer> inorderList) {
+		if (root==null)
+			return;
+		helper(root.left, inorderList);
+		inorderList.add(root.val);
+		helper(root.right, inorderList);
+	}
+ 
+ 
+ 
+ 
+ 
+ 
+ // Node class 
+class Node 
+{ 
+	constructor(data) 
+	{ 
+		this.data = data; 
+		this.left = null; 
+		this.right = null; 
+	} 
+} 

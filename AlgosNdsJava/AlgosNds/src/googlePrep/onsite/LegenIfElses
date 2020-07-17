@@ -1,0 +1,152 @@
+Legendary if elses 
+
+from code.app_constants import (
+    INVENTORY_PLUS,
+    OPEN_MATE,
+    DEFAULT_ODOMETER,
+    DEFAULT_ODOMETER_TYPE,
+    DEFAULT_PRICE,
+    KEY_RETAIL_PRICE,
+    KEY_INTERNET_PRICE,
+    KEY_ODOMETER,
+    KEY_ODOMETER_TYPE,
+    KEY_CPO_STATUS,
+    KEY_EXTENDED_ATTRIBUTES,
+    KEY_PRICING_INFO,
+    KEY_MSRP,
+    KEY_ADVERTISED_PRICE,
+    KEY_ODOMETER_READING,
+    KEY_MILES_OR_KM,
+    KEY_VEHICLE_INDICATORS,
+    KEY_CERTIFIED_PRE_OWNED,
+    KEY_TITLE_STATUS,
+)
+
+
+def normalize_vehicle(original_vehicle, source, destination):
+    if source == INVENTORY_PLUS and destination == OPEN_MATE:
+        return normalize_to_openmate(original_vehicle)
+    elif source == OPEN_MATE and destination == INVENTORY_PLUS:
+        return normalize_to_inventory_plus(original_vehicle)
+    else:
+        return {}
+
+
+def normalize_to_openmate(inventory_vehicle):
+    openmate_vehicle = {}
+    if inventory_vehicle:
+        openmate_vehicle[KEY_PRICING_INFO] = {}
+        if KEY_RETAIL_PRICE in inventory_vehicle:
+            openmate_vehicle[KEY_PRICING_INFO][KEY_MSRP] = inventory_vehicle[
+                KEY_RETAIL_PRICE
+            ]
+        else:
+            openmate_vehicle[KEY_PRICING_INFO][KEY_MSRP] = DEFAULT_PRICE
+
+        if KEY_INTERNET_PRICE in inventory_vehicle:
+            openmate_vehicle[KEY_PRICING_INFO][
+                KEY_ADVERTISED_PRICE
+            ] = inventory_vehicle[KEY_INTERNET_PRICE]
+        else:
+            openmate_vehicle[KEY_PRICING_INFO][
+                KEY_ADVERTISED_PRICE
+            ] = DEFAULT_PRICE
+
+        if KEY_ODOMETER in inventory_vehicle:
+            openmate_vehicle[KEY_ODOMETER_READING] = inventory_vehicle[
+                KEY_ODOMETER
+            ]
+        else:
+            openmate_vehicle[KEY_ODOMETER_READING] = DEFAULT_ODOMETER
+
+        if KEY_ODOMETER_TYPE in inventory_vehicle:
+            openmate_vehicle[KEY_MILES_OR_KM] = inventory_vehicle[
+                KEY_ODOMETER_TYPE
+            ].upper()
+        else:
+            openmate_vehicle[KEY_MILES_OR_KM] = DEFAULT_ODOMETER_TYPE.upper()
+
+        openmate_vehicle[KEY_VEHICLE_INDICATORS] = {}
+
+        if KEY_CPO_STATUS in inventory_vehicle:
+            openmate_vehicle[KEY_VEHICLE_INDICATORS][
+                KEY_CERTIFIED_PRE_OWNED
+            ] = (inventory_vehicle[KEY_CPO_STATUS] == "certified")
+        else:
+            openmate_vehicle[KEY_VEHICLE_INDICATORS][
+                KEY_CERTIFIED_PRE_OWNED
+            ] = False
+
+        if (
+            KEY_EXTENDED_ATTRIBUTES in inventory_vehicle
+            and KEY_TITLE_STATUS in inventory_vehicle[KEY_EXTENDED_ATTRIBUTES]
+            and inventory_vehicle[KEY_EXTENDED_ATTRIBUTES][KEY_TITLE_STATUS]
+            == "Clear"
+        ):
+            openmate_vehicle[KEY_TITLE_STATUS] = "RECEIVED"
+        else:
+            openmate_vehicle[KEY_TITLE_STATUS] = "PROBLEM"
+
+    return openmate_vehicle
+
+
+def normalize_to_inventory_plus(openmate_vehicle):
+    inventory_vehicle = {KEY_EXTENDED_ATTRIBUTES: {}}
+    if openmate_vehicle:
+        if KEY_PRICING_INFO in openmate_vehicle:
+            if KEY_MSRP in openmate_vehicle[KEY_PRICING_INFO]:
+                inventory_vehicle[KEY_RETAIL_PRICE] = int(
+                    openmate_vehicle[KEY_PRICING_INFO][KEY_MSRP],
+                )
+            else:
+                inventory_vehicle[KEY_RETAIL_PRICE] = DEFAULT_PRICE
+
+            if KEY_ADVERTISED_PRICE in openmate_vehicle[KEY_PRICING_INFO]:
+                inventory_vehicle[KEY_INTERNET_PRICE] = int(
+                    openmate_vehicle[KEY_PRICING_INFO][KEY_ADVERTISED_PRICE],
+                )
+            else:
+                inventory_vehicle[KEY_INTERNET_PRICE] = DEFAULT_PRICE
+        else:
+            inventory_vehicle[KEY_RETAIL_PRICE] = DEFAULT_PRICE
+            inventory_vehicle[KEY_INTERNET_PRICE] = DEFAULT_PRICE
+
+        if KEY_ODOMETER_READING in openmate_vehicle:
+            inventory_vehicle[KEY_ODOMETER] = openmate_vehicle[
+                KEY_ODOMETER_READING
+            ]
+        else:
+            inventory_vehicle[KEY_ODOMETER] = DEFAULT_ODOMETER
+
+        if KEY_MILES_OR_KM in openmate_vehicle:
+            inventory_vehicle[KEY_ODOMETER_TYPE] = openmate_vehicle[
+                KEY_MILES_OR_KM
+            ].lower()
+        else:
+            inventory_vehicle[KEY_ODOMETER_TYPE] = DEFAULT_ODOMETER_TYPE.lower()
+
+        if (
+            KEY_VEHICLE_INDICATORS in openmate_vehicle
+            and KEY_CERTIFIED_PRE_OWNED
+            in openmate_vehicle[KEY_VEHICLE_INDICATORS]
+            and openmate_vehicle[KEY_VEHICLE_INDICATORS][
+                KEY_CERTIFIED_PRE_OWNED
+            ]
+        ):
+            inventory_vehicle[KEY_CPO_STATUS] = "certified"
+        else:
+            inventory_vehicle[KEY_CPO_STATUS] = "unspecified"
+
+        if (
+            KEY_TITLE_STATUS in openmate_vehicle
+            and openmate_vehicle[KEY_TITLE_STATUS] == "RECEIVED"
+        ):
+            inventory_vehicle[KEY_EXTENDED_ATTRIBUTES][
+                KEY_TITLE_STATUS
+            ] = "Clear"
+        else:
+            inventory_vehicle[KEY_EXTENDED_ATTRIBUTES][
+                KEY_TITLE_STATUS
+            ] = "Other (specify in Description)"
+
+    return inventory_vehicle
