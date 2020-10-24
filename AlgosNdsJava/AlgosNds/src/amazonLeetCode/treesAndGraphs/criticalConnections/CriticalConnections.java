@@ -98,8 +98,8 @@ public class CriticalConnections {
 	}
 	
 	public static void main(String[] args) {
-		List<List<Integer>> connections = new ArrayList<>(Arrays.asList(Arrays.asList(0,1),Arrays.asList(0,2),Arrays.asList(1,3),Arrays.asList(2,3),Arrays.asList(2,5),Arrays.asList(5,6),Arrays.asList(3,4)));
-		System.out.println(new CriticalConnections().criticalConnections(7, connections));
+		List<List<Integer>> connections = new ArrayList<>(Arrays.asList(Arrays.asList(0,1),Arrays.asList(0,1),Arrays.asList(1,2),Arrays.asList(2,0),Arrays.asList(1,3)));
+		System.out.println(new CriticalConnections().criticalConnections(4, connections));
 	}
 
 }
