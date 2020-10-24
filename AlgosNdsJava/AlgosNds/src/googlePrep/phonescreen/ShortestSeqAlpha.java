@@ -1,0 +1,33 @@
+package googlePrep.phonescreen;
+
+public class ShortestSeqAlpha {
+	public String shortestSeq(String s) {
+        int[] alphabet = new int[26];
+        // initialize alphabet with -1
+        for (int i=0; i<26; i++) alphabet[i] = -1;
+
+        int start = 0; int end = Integer.MAX_VALUE;
+        for (int i=0; i<s.length(); i++) {
+            int ch = s.charAt(i) - 'a';
+            System.out.println(s.charAt(i));
+
+            // continue if not english alphabet
+            if (ch < 0 || ch > 25) continue;
+
+            if (ch == 25 && alphabet[24] != -1 && i+1-alphabet[24] < end-start) {
+                start = alphabet[24]; end = i+1;
+            }
+
+           // if char is 'a' assign alphabet[0] with new position value
+           // else assigning alphabet[ch] as alphabet[ch-1] ensures that alphabets are in proper sequence
+            alphabet[ch] = (ch == 0) ? i : alphabet[ch-1];
+        }
+
+        return end==Integer.MAX_VALUE ? "" : s.substring(start, end);
+    }
+	
+	public static void main(String[] args) {
+		String s = "sabuycudkge fagkhfgi jakilameng,okpaq reswytgukjvfwgxaeyw z,kgabcdefghijklmnopqrstuvwxyz";
+		System.out.println(new ShortestSeqAlpha().shortestSeq(s));
+	}
+}

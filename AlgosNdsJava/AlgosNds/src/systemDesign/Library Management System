@@ -1,0 +1,36 @@
+
+Libary
+
+// features
+
+-- store and get books
+-- reserve a book
+-- users
+-- accounts
+                                
+                                      
+         Book {
+         	id
+         	name
+         }
+         
+         Reservation {
+         	book
+         	user
+         }
+         
+         
+         
+         
+         
+     
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                

@@ -1,0 +1,92 @@
+   // smallest rec. within graph
+   
+   
+   
+   
+/*
+Write a scheduler Implementation
+User will provide a bucket number - i.e. number of buckets available
+Assume you have some worker threads for each bucket - you dont need to worry about it 
+
+Given a List of task objects where in 
+task -> {
+    id - which is unique
+    type - which can be shared
+}
+
+You will get number of buckets as an argument
+Write a function that takes the list of tasks to schedule and schedule them with following constraints:
+1. If a bucket already has a task of same type -> you cannot schedule another similar type task on that bucket.
+2. Ensure in a given moment in time the buckets are balanced as much as possible
+3. This is extra: #1 and #2 are MVP - if the number of buckets changes, the task needs to be rebalanced.
+How do you rebalance the tasks?
+
+Followup:
+1. Complexity of this solution w.r.t. time and space? 
+2. How does this solution can scale ?
+
+example bucket1 has type type 1 - task 1.. 
+task 2 - type 1 -> you cannot assign this on bucket 1.. but you can assign to bucket 2
+
+bucket 1has 3 
+bucket 2 has 2
+bucket 3 has 1
+
+bucket {
+    id: 
+    List<Tasks> 
+    size:
+    boolean hasType()
+    push()
+}
+
+
+buckets: 3,    
+buckets: 2
+
+Queue<Bucket> q = new PriorityQueue<>((b1,b2)->(b1.size()-b2.size());
+
+class Scheduler {
+   Queue<Bucket> q;
+   
+   Scheduler(List<Bucket> buckets) {
+       q = new PriorityQueue<>(buckets, (b1,b2)->(b1.size()-b2.size());
+   }
+   
+   
+   
+   public void addTasks(List<Task> tasks) {
+     
+      int size = q.size();
+      int idx=0;
+      
+      // 2 state
+      // [t2,]
+      
+      // Set [t1,t2...]
+      // int count tasks
+       
+      for (Task t: tasks) {
+      List<Buckets> removed = new ArrayList<>();
+        while(index<size) {
+          Bucket b = q.poll();
+          if (!b.hasType(task.type)) {
+              b.push(task);
+              removed.add(b);
+          }
+        }
+        q.addAll(removed);
+      }
+ 
+   }
+   
+   
+}
+
+...
+
+
+
+*/
+
+// task in bucket 

@@ -1,7 +1,9 @@
 package leetcode;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 public class LongestSubStringWithoutRepeat {
@@ -22,6 +24,23 @@ public class LongestSubStringWithoutRepeat {
         }
         return ans;
 	}
+	
+    public int lengthOfLongestSubstring(String s) {
+        int ans=0, left=0;
+        int n = s.length();
+        Map<Character,Integer> map = new HashMap<>();
+        for (int right=0; right<n; right++) {
+            if (map.containsKey(s.charAt(right))) {
+                left = Math.max(left, map.get(s.charAt(right)));
+            }
+            
+            ans = Math.max(right-left+1, ans);
+            map.put(s.charAt(right), right+1);    
+        }
+       
+       return ans;
+   }
+    
 	public static void main(String[] args) {
 		//abcabcbb
 		System.out.println(subStrNoRepeat("dvddf"));

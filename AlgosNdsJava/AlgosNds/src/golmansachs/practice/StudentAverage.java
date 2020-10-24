@@ -1,10 +1,16 @@
 package golmansachs.practice;
 
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+
+import javax.xml.datatype.DatatypeConfigurationException;
+import javax.xml.datatype.DatatypeFactory;
+import javax.xml.datatype.XMLGregorianCalendar;
 
 class Student {
 	String name;
@@ -42,7 +48,7 @@ public class StudentAverage {
 		return (int) Math.floor(total / marks.size());
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws DatatypeConfigurationException {
 		// [{"Bob","87"}, {"Mike", "35"},{"Bob", "52"}, {"Jason","35"}, {"Mike",
 		// "55"}, {"Jessica", "99"}]
 		Student bob = new Student("Bob", "87");
@@ -59,6 +65,12 @@ public class StudentAverage {
 		students.add(Jason);
 		students.add(mike2);
 		students.add(Jessica);
-		System.out.println(new StudentAverage().studentWithHighestAvgMarks(students));
+//		System.out.println(new StudentAverage().studentWithHighestAvgMarks(students));
+		
+        XMLGregorianCalendar cal = DatatypeFactory.newInstance()
+                .newXMLGregorianCalendar(GregorianCalendar.from(null));
+        
+        System.out.println(cal.toString());
+		
 	}
 }

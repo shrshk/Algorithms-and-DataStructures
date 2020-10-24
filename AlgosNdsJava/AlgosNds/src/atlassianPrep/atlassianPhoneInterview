@@ -1,0 +1,73 @@
+ // Atlassian Phone interview
+ 
+ -Coding exercise to find the second-most repeated character in a String. Interviewer will look for ability to give proper syntax & cover all corner cases.
+-Implement a function that will return the permutations of a given word in constant time. Interviewer will look for candidate's ability to ask clarifying questions before implementation. 
+-Asked about design patterns, async programming, production issues
+-Understanding of the binary search tree data structure.
+-Knowledge in traversal implementations.
+-Ability to traverse a data structure.
+-Ability to think of different scopes and traversal.
+-Understanding of different ways to traverse a binary search tree.
+-Linked lists
+-Median of a stream of integers
+-Change algorithm for vending machine. Follow up questions: how to choose between two algorithms with exact same runtime complexity
+-Explain DB normalization
+-Reverse the vowels in a string
+-Write a program to count number of palindromic substrings in a given string
+-Rotate a linked list by k positions
+-Asked about garbage collection 
+-maximum contiguous sum in an array of integers
+-Two binary trees are mirrors of each other
+-Generate permutations of a word in constant time 
+-asked about distributed systems and how they handled logging across multiple nodes 
+-write program to find kth smallest in BST
+-Given a binary tree, print boundary nodes of the binary tree Anti-Clockwise starting from the root.
+-counting BST trees
+-designing a REST based system
+
+
+Quickhitter Vocabulary Questions from Phone Screen Interview Feedback Concepts:
+
+-Explain Garbage Collection
+
+What is Recursive programming
+
+Multi-threading 
+
+Persistence Technologies 
+
+Understanding of Distributed Systems concepts (Cap Theorem, Replication, Sharding, Consistent Hashing, Eventual Consistency. Sample question: How do you handle logging across multiple nodes?)
+
+Can you explain Cap Theorem?
+
+REST API design concepts, and concerns around this (pagination, paths, security tokens, versioning, caching strategy, sharding based on time, load balancer and multiple backend servers, etc.)
+
+Performance (Resolving performance issues): Are you able to determine when it is better to use a queue vs when REST API calls are preferred?
+
+Scalability/Cloud Scaling
+
+Monitoring (familiarity with QPS / RPS / load / and metrics used to monitor services built)
+
+Do you know how synchronization and concurrency works? 
+
+Do you know what Condition Variables are?
+
+Can you explain SQL vs. NOSQL
+
+RDBMS: Can you explain the need for different transaction isolation levels? 
+
+Async programming experience
+
+Familiarity with GC algorithm and DFS algorithm
+
+Design patterns
+
+What are the pros and cons of database normalization
+
+REST methods: Can you explain POST, PUT, GET & PATCH?
+
+Can you Explain database normalization?
+
+Debugging OutOfMemory issues
+
+Architecture/Design: are you familiar with Iterable Interface? 

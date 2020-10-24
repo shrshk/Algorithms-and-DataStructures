@@ -1,0 +1,50 @@
+// S = "ADOBEC ODEBANC", T = "ABC"
+
+Map<Character, Integer> map = new HashMap<>();
+
+for (char ch: s.toCharArray()) {
+	map.put(ch, 0);
+}
+
+for (char c: t.toCharArray()) {
+	if (map.containsKey(c)) {
+		map.put(c, map.get(c)+1);		
+	} else {
+		return "";
+	}
+}
+
+swipe thru S, maintain a counter to make sure all chars in t are hit
+
+int i=0,j=0,minLen=Integer.MAX_VALUE,minStart=0,counter=t.length();
+
+{
+ A:1
+ D:0
+ O:0
+
+}
+
+while(j<s.length()) {
+	char c1 = s.charAt(j);
+	if (map.get(c1)>0) {
+		counter--; // found a char in t
+	}
+	map.put(c1, map.get(c1)-1); // remove the found character
+	j++; // move right
+	while (counter==0) { // all chars in t are found
+		if (minLen > j-i) {
+			minLen = j-i;
+			minStart = i;
+		}
+		
+		char c2 = s.charAt(i);
+		map.put(c2, map.get(c2)+1);
+		
+		if (map.get(c2)>0) // found a char which is also in t
+			counter++;
+	    i++;
+	}
+	
+	return minLen == Integer.MAX_VALUE ? "" : s.subString(minStart, minStart+minLen);
+}

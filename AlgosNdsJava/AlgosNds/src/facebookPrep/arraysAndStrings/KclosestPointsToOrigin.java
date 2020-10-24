@@ -1,9 +1,24 @@
 package facebookPrep.arraysAndStrings;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Queue;
+
+class PairInt {
+	int first, second;
+
+	PairInt() {
+
+	}
+
+	PairInt(int first, int second) {
+		this.first = first;
+		this.second = second;
+	}
+}
 
 class LocComparator implements Comparator<int[]> {
 
@@ -26,6 +41,48 @@ class LocComparator implements Comparator<int[]> {
 }
 
 public class KclosestPointsToOrigin {
+	public List<PairInt> closestLocations(int totalCrates, List<PairInt> allLocations, int truckCapacity) {
+
+		if (allLocations == null || allLocations.isEmpty()) {
+			List<PairInt> emptyList = new ArrayList<>();
+			for (int i = 0; i < truckCapacity; i++) {
+				emptyList.add(new PairInt());
+			}
+			return emptyList;
+		}
+
+		int len = allLocations.size(), l = 0, r = len - 1;
+		while (l <= r) {
+			int mid = helper(allLocations, l, r);
+			if (mid == truckCapacity)
+				break;
+			if (mid < truckCapacity) {
+				l = mid + 1;
+			} else {
+				r = mid - 1;
+			}
+		}
+		return allLocations.subList(0, truckCapacity);
+	}
+
+	private int helper(List<PairInt> A, int l, int r) {
+		PairInt pivot = A.get(l);
+		while (l < r) {
+			while (l < r && compare(A.get(r), pivot) >= 0)
+				r--;
+			A.set(l, A.get(r));
+			while (l < r && compare(A.get(l), pivot) <= 0)
+				l++;
+			A.set(r, A.get(l));
+		}
+		A.set(l, pivot);
+		return l;
+	}
+
+	private int compare(PairInt p1, PairInt p2) {
+		return p1.first * p1.first + p1.second * p1.second - p2.first * p2.first - p2.second * p2.second;
+	}
+
 	public int[][] kClosest(int[][] points, int K) {
 
 		int[][] res = new int[K][];
@@ -43,6 +100,32 @@ public class KclosestPointsToOrigin {
 		}
 
 		return res;
+	}
+
+	public List<PairInt> closestLocationsOld(int totalCrates, List<PairInt> allLocations, int truckCapacity) {
+
+		if (allLocations == null || allLocations.isEmpty()) {
+			List<PairInt> emptyList = new ArrayList<>();
+			for (int i = 0; i < truckCapacity; i++) {
+				emptyList.add(new PairInt());
+			}
+			return emptyList;
+		}
+
+		Queue<PairInt> pq = new PriorityQueue<PairInt>(
+				(PairInt p1, PairInt p2) -> distanceTruck(p2) - distanceTruck(p1));
+		for (PairInt p : allLocations) {
+			pq.add(p);
+			if (pq.size() > truckCapacity)
+				pq.poll();
+		}
+
+		return new ArrayList<>(pq);
+
+	}
+
+	private int distanceTruck(PairInt point) {
+		return point.first * point.first + point.second * point.second;
 	}
 
 	public int[][] kClosestOpt(int[][] points, int K) {
@@ -73,12 +156,24 @@ public class KclosestPointsToOrigin {
 	public static void main(String[] args) {
 		// points = [[1,3],[-2,2]], K = 1
 		// [[2,10],[-9,-9],[0,8],[-2,-2],[8,9],[-10,-7],[-5,2],[-4,-9]]
-		int[][] points = new int[][] { { 2, 10 }, { -9, -9 }, { 0, 8 }, { -2, -2 }, { 8, 9 }, { -10, -7 }, { -5, 2 },
-				{ -4, -9 } };
+		// int[][] points = new int[][] { { 2, 10 }, { -9, -9 }, { 0, 8 }, { -2,
+		// -2 }, { 8, 9 }, { -10, -7 }, { -5, 2 },
+		// { -4, -9 } };
+		//
+		// int[][] res = new KclosestPointsToOrigin().kClosestOpt(points, 7);
+		// List<Integer> list = new ArrayList<>();
+		// System.out.println(list.isEmpty());
+		//
+		// for (int[] pt : res)
+		// System.out.println(Arrays.toString(pt));
+		//
+		int truckCapacity = 2;
+		int totalCrates = 3;
+		//
+		List<PairInt> allLocations = Arrays.asList(new PairInt(1, 2), new PairInt(3, 4), new PairInt(1, -1));
+		List<PairInt> ans = new KclosestPointsToOrigin().closestLocations(totalCrates, allLocations, truckCapacity);
+		for (PairInt pI : ans)
+			System.out.println(pI.first + " " + pI.second);
 
-		int[][] res = new KclosestPointsToOrigin().kClosestOpt(points, 7);
-
-		for (int[] pt : res)
-			System.out.println(Arrays.toString(pt));
 	}
 }

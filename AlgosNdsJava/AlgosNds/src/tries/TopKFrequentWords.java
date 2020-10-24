@@ -30,6 +30,27 @@ class WordComparator implements Comparator<Word> {
 }
 
 public class TopKFrequentWords {
+
+	public List<Integer> topKFrequent(int[] nums, int k) {
+		Map<Integer, Integer> map = new HashMap<>();
+		List<Integer> res = new ArrayList<>();
+		for (int num : nums) {
+			map.put(num, map.getOrDefault(num, 0) + 1);
+		}
+
+		Queue<Integer> q = new PriorityQueue<>((a, b) -> (map.get(b) - map.get(a)));
+
+		for (int num : map.keySet()) {
+			q.add(num);
+		}
+
+		for (int i = 0; i < k; i++) {
+			res.add(q.poll());
+		}
+
+		return res;
+	}
+
 	public List<String> topKFrequent(String[] words, int k) {
 		Map<String, Integer> map = new HashMap<>();
 
@@ -44,24 +65,28 @@ public class TopKFrequentWords {
 
 		for (Entry<String, Integer> e : map.entrySet()) {
 			pq.add(new Word(e.getKey(), e.getValue()));
-			if (pq.size()>k) pq.poll();
+			if (pq.size() > k)
+				pq.poll();
 		}
 
 		List<String> result = new ArrayList<>();
 
-		for (int i = 0; i<k; i++) {
+		for (int i = 0; i < k; i++) {
 			result.add(pq.poll().word);
 		}
-		
+
 		Collections.reverse(result);
 
 		return result;
 	}
-	
+
 	public static void main(String[] args) {
+		int[] arr = new int[] { 1, 1, 1, 2, 2, 3 };
+		System.out.println(new TopKFrequentWords().topKFrequent(arr, 2));
 		// List<String> input = Arrays.asList();
-		String[] input = new String[]{"i", "love", "leetcode", "i", "love", "coding"};
-		// ["i", "love", "leetcode", "i", "love", "coding"] // "the", "day", "is", "sunny", "the", "the", "the", "sunny", "is", "is"
+		String[] input = new String[] { "i", "love", "leetcode", "i", "love", "coding" };
+		// ["i", "love", "leetcode", "i", "love", "coding"] // "the", "day",
+		// "is", "sunny", "the", "the", "the", "sunny", "is", "is"
 		System.out.println(new TopKFrequentWords().topKFrequent(input, 2));
 	}
 }

@@ -4,6 +4,14 @@ import java.util.HashMap;
 
 public class MinWindow {
 	public String minWindow(String s, String t) {
+        // S = "ADOBEC ODEBANC", T = "ABC"
+		// steps
+		// make a map of t chars
+		// swipe thru S to find the window with all t chars
+		// while loop thru s and adjust map and counter accordingly
+		// when counter is 0 i.e. all chars in t are found
+		// update minLen
+		// reset map and move to start till the counter is 0
 	    HashMap<Character,Integer> map = new HashMap<>();
 	    for(char c : s.toCharArray())
 	        map.put(c,0);

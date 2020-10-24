@@ -1,0 +1,9 @@
+
+
+is PerfectSquare(5n^2+4 || 5n^2-4)
+
+
+int s = (int) Math.sqrt(x)
+
+return s*s == x;
+

@@ -25,7 +25,6 @@ public class FractionToDecimal {
         // fractional part
         res.append(".");
         Map<Long, Integer> map = new HashMap<Long, Integer>();
-        map.put(num, res.length());
         while (num != 0) {
             map.put(num, res.length());
 

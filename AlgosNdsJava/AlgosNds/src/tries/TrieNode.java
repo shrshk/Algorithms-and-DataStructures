@@ -46,11 +46,9 @@ public class TrieNode {
 	}
 
 	public static void main(String[] args) {
-		double i = Math.floor(Math.random() * 10);
-		System.out.println(i);
 		TrieNode root = new TrieNode();
 		root.insert("shirish");
-		System.out.println(root.startsWith("sha"));
+		System.out.println(root.startsWith("shi"));
 	}
 
 }

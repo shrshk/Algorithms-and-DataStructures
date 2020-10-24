@@ -1,0 +1,32 @@
+["ProductOfNumbers","add","add","add","add","add","getProduct","getProduct","getProduct","add","getProduct"]
+[[],[3],[0],[2],[5],[4],[2],[3],[4],[8],[2]]
+
+[null,null,null,null,null,null,20,40,0,null,32]
+
+nums // [3,0,2,5,4]  2 10 40
+
+class Product {
+	List<Integer> product; 
+	int p = 1;
+	Product() {
+		product = new ArrayList<>();				
+	}
+	
+	void add(int number) {
+		if (number==0) {
+			product = new ArrayList<>();
+			p=1;
+			return;
+		}
+		p*=number;
+		product.add(p);		
+	}
+	
+	int getProduct(int k) {
+	   if (nums.size()<k)
+	   	 return 0;
+	   if (nums.size()==k)
+	   	 return product.get(product.size()-1);
+	   return product.get(product.size()-1)/product.get(product.size()-1-k));
+	}
+}

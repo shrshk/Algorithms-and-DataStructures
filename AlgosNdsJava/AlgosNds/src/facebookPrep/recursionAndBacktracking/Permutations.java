@@ -57,9 +57,36 @@ public class Permutations {
 		}
 	}
 	
+	public List<String> stringPermutations(int[] A) {
+		String str = "";
+		for (int i: A)
+			str+=i;	
+		List<String> permutations = new ArrayList<>(); 
+		boolean[] used = new boolean[str.length()];
+		backtrack(str, new StringBuilder(), permutations, used);
+		return permutations;
+	}
+	
+	private void backtrack(String s, StringBuilder tmp, List<String> res, boolean[] used) {
+		if (tmp.length() == s.length())
+			res.add(tmp.toString());
+		for (int i=0; i<s.length(); i++) {
+			if (used[i])
+				continue;
+			tmp.append(s.charAt(i));
+			used[i] = true;
+			backtrack(s, tmp, res, used);
+			used[i] = false;
+			tmp.deleteCharAt(tmp.length()-1);
+		}		
+	}
+	
 	public static void main(String[] args) {
 		// System.out.println(new Permutations().permute(new int[]{1,2,3}));
-		System.out.println(new Permutations().permuteUnique(new int[]{1,1,2}));
+		// System.out.println(new Permutations().permuteUnique(new int[]{1,1,2}));
+		// System.out.println(new Permutations().stringPermutations(new int[]{1,2,3,4}));
+		System.out.println("22:59".compareTo("23:59"));
+		System.out.println("23".compareTo("24"));
 	}
 	
 }

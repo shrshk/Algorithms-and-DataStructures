@@ -1,0 +1,3 @@
+
+
+Helps prevent race condition when two threads are trying to increment the same value.

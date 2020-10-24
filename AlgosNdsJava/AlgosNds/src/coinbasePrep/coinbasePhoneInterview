@@ -1,0 +1,21 @@
+// coinbase
+
+Use an internal API to maintain local state.
+Computation of an integer sequence
+The Fizz Buzz problem,
+Find pairs of numbers whose difference is a given number
+Unique path II on Leetcode
+Flip bit problem
+Given bids/asks and orders, what are the matched orders?
+Fibonacci, calculate price of bitcoin from their API order book
+Implement order book reconstruction based on the Coinbase Exchange market data feed.
+Leetcode medium level DP questions.
+Routes in a matrix
+Inverse binary numbers
+Code the solution for a generic problem where the input and output is a JSON.
+Build a fairly simple, familiar game in the terminal (they tell you which game) using the language of your choice.
+TripleByte test software generalist questions about map reduce, system design, javascript and ruby
+Given a list of transactions between a group of friends (can be one person paying multiple people, multiple people paying one person and vice versa), calculate and print out how much money individuals owe one another. (Venmo essentially)
+Look at the current Coinbase sign-up on the homepage. What are the different ways we can track how users remain or drop-off during the signup process? What are some of your suggestions for making the signup process better?
+What is A/B testing? (give 2 versions of a webpage get analytics and compare)
+Find the nth number in the fib sequence

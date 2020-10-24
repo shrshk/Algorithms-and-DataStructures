@@ -11,18 +11,16 @@ public class PascalTriangle {
 	}
 
 	public static int pascal(int i, int j) {
-		if (j == 0) {
+		if (j == 0 || j == i) {
 			return 1;
-		} else if (j == i) {
-			return 1;
-		} else {
-			return pascal(i - 1, j - 1) + pascal(i - 1, j);
 		}
+
+		return pascal(i - 1, j - 1) + pascal(i - 1, j);
 
 	}
 
 	public static void main(String[] args) {
 		print(5);
-		System.out.println(pascal(3, 2));
+		//System.out.println(pascal(3, 2));
 	}
 }

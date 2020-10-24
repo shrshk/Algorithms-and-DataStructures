@@ -22,10 +22,9 @@ public class BinarySearchAlgo {
 	return -1;
 	}
 	public static void main(String[] args) {
-		BinarySearchAlgo bsa = new BinarySearchAlgo();
-		int k=5;
+		int k=1;
 		int[] x ={1,2,3,4,5};
-		System.out.println(bsa.retKeyBinarySearch(x, k));
+		System.out.println(retKeyBinarySearch(x, k));
 	}
 	
 
