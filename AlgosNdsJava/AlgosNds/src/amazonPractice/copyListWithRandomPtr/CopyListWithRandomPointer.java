@@ -19,6 +19,7 @@ public class CopyListWithRandomPointer {
 			return head;
 		Node curr = head;
 
+		// add copy nodes next to real ones 1 1" 2 " 3 3" ....
 		while (curr != null) {
 			Node next = curr.next;
 			curr.next = new Node(curr.val, next, null);
@@ -27,6 +28,7 @@ public class CopyListWithRandomPointer {
 
 		curr = head;
 
+		// assign random node links to copy nodes 1->3 1'->3'
 		while (curr != null) {
 			if (curr.random != null) {
 				curr.next.random = curr.random.next;
@@ -38,15 +40,15 @@ public class CopyListWithRandomPointer {
 		Node copyHead = head.next;
 
 		while (curr != null) {
-			Node next = curr.next.next;
-			Node copy = curr.next;
+			Node next = curr.next.next; //2
+			Node copy = curr.next; // 1'
 
-			curr.next = next;
+			curr.next = next; // 1->2
 			if (next != null) {
-				copy.next = next.next;
+				copy.next = next.next; // 1'->2'
 			}
 
-			curr = next;
+			curr = next; // 1=2
 
 		}
 

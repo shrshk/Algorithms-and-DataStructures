@@ -5,8 +5,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Queue;
 
-import leetcode30DayChallenge.june.wordSearch2.TrieNode;
-
 //class TrieNode {
 //	boolean isLeaf;
 //	int depth;

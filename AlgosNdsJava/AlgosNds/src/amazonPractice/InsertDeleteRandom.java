@@ -59,12 +59,6 @@ public class InsertDeleteRandom {
 		int idx = rand.nextInt(size);
 		return list.get(idx);
 	}
-	// public static void main(String[] args) {
-	// RandomizedSet x = new RandomizedSet();
-	// System.out.println(x.insert(1));
-	// System.out.println(x.remove(0));
-	//
-	// }
 }
 /**
  * Your RandomizedSet object will be instantiated and called as such:

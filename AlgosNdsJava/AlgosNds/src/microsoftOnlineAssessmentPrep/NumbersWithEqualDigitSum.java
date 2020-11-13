@@ -13,7 +13,8 @@ public class NumbersWithEqualDigitSum {
 			String numS = String.valueOf(num);
 			for (char c : numS.toCharArray())
 				sum += c - '0';
-			PriorityQueue<Integer> nums = map.getOrDefault(sum, new PriorityQueue<>((a, b) -> (b - a)));
+			map.putIfAbsent(sum, new PriorityQueue<Integer>((a, b) -> (b - a)));
+			PriorityQueue<Integer> nums = map.get(sum);
 			nums.add(num);
 			map.put(sum, nums);
 		}
@@ -33,6 +34,7 @@ public class NumbersWithEqualDigitSum {
 
 	public static void main(String[] args) {
 		int[] A = new int[] { 51, 32, 43 };
-		System.out.println(new NumbersWithEqualDigitSum().numbersWithEqualDigitSum(A));
+		System.out.println(new NumbersWithEqualDigitSum()
+				.numbersWithEqualDigitSum(A));
 	}
 }

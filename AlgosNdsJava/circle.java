@@ -22,6 +22,6 @@ public class Circle implements Comparable<Circle> {
 	@Override
 	public String toString() {
 		return "This Circle is of radius: " + this.radius;
-	}
+	} //
 	
 }
